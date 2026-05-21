@@ -1,0 +1,11 @@
+C:\Users\Dell\OneDrive\Desktop\.net\Student management system\StudentManagement.domain\bin\Debug\net10.0\StudentManagement.domain.deps.json
+C:\Users\Dell\OneDrive\Desktop\.net\Student management system\StudentManagement.domain\bin\Debug\net10.0\StudentManagement.domain.dll
+C:\Users\Dell\OneDrive\Desktop\.net\Student management system\StudentManagement.domain\bin\Debug\net10.0\StudentManagement.domain.pdb
+C:\Users\Dell\OneDrive\Desktop\.net\Student management system\StudentManagement.domain\obj\Debug\net10.0\StudentManagement.domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Dell\OneDrive\Desktop\.net\Student management system\StudentManagement.domain\obj\Debug\net10.0\StudentManagement.domain.AssemblyInfoInputs.cache
+C:\Users\Dell\OneDrive\Desktop\.net\Student management system\StudentManagement.domain\obj\Debug\net10.0\StudentManagement.domain.AssemblyInfo.cs
+C:\Users\Dell\OneDrive\Desktop\.net\Student management system\StudentManagement.domain\obj\Debug\net10.0\StudentManagement.domain.csproj.CoreCompileInputs.cache
+C:\Users\Dell\OneDrive\Desktop\.net\Student management system\StudentManagement.domain\obj\Debug\net10.0\StudentManagement.domain.dll
+C:\Users\Dell\OneDrive\Desktop\.net\Student management system\StudentManagement.domain\obj\Debug\net10.0\refint\StudentManagement.domain.dll
+C:\Users\Dell\OneDrive\Desktop\.net\Student management system\StudentManagement.domain\obj\Debug\net10.0\StudentManagement.domain.pdb
+C:\Users\Dell\OneDrive\Desktop\.net\Student management system\StudentManagement.domain\obj\Debug\net10.0\ref\StudentManagement.domain.dll

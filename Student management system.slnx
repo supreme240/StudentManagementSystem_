@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="ApplcationStudentManagement/ApplicationStudentManagement.csproj" Id="af4a128b-1982-4711-8d16-d8ec6f14bb41" />
+  <Project Path="Student management system/Student management system.csproj" />
+  <Project Path="StudentManagement.domain/StudentManagement.domain.csproj" Id="3349796d-93d2-4c42-8dd3-5ae002f199f9" />
+  <Project Path="StudentManagementSystem.Infrastructure/StudentManagementSystem.Infrastructure.csproj" Id="674d35ee-1150-4905-be83-931891dd060e" />
+</Solution>

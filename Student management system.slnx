@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".gitignore" />
+  </Folder>
   <Project Path="ApplcationStudentManagement/ApplicationStudentManagement.csproj" Id="af4a128b-1982-4711-8d16-d8ec6f14bb41" />
   <Project Path="Student management system/Student management system.csproj" />
   <Project Path="StudentManagement.domain/StudentManagement.domain.csproj" Id="3349796d-93d2-4c42-8dd3-5ae002f199f9" />

@@ -1,8 +1,9 @@
 ﻿using StudentManagement.domain.Domain;
+using StudentManagementSystem.Infrastructure.Repository;
 
 namespace StudentManagementSystem.Infrastructure.Repositories
 {
-    public interface IRegistrationRepository
+    public interface IRegistrationRepository : IGenericRepository<Registration>
     {
         Task AddAsync(Registration registration);
         Task<List<Registration>> GetAllAsync();

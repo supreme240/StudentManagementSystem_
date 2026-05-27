@@ -1,8 +1,9 @@
 using ApplicationStudentManagement.Interfaces;
 using ApplicationStudentManagement.Services;
-using StudentManagementSystem.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
+using StudentManagementSystem.Infrastructure.Data;
 using StudentManagementSystem.Infrastructure.Repositories;
+using StudentManagementSystem.Infrastructure.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +16,7 @@ builder.Services.AddScoped<IStudentInterface, NewStudentService>();
 builder.Services.AddScoped<IStudentChild, ChildStudentService>();
 builder.Services.AddScoped<IRegistrationService, RegistrationService>();
 builder.Services.AddScoped<IRegistrationRepository, RegistrationRepository>();
+builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

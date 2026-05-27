@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Dell\\OneDrive\\Desktop\\.net\\Student management system\\StudentManagement.domain\\StudentManagement.domain.csproj",
+      "projectUniqueName": "C:\\Student management system\\StudentManagement.domain\\StudentManagement.domain.csproj",
       "projectName": "StudentManagement.domain",
-      "projectPath": "C:\\Users\\Dell\\OneDrive\\Desktop\\.net\\Student management system\\StudentManagement.domain\\StudentManagement.domain.csproj",
+      "projectPath": "C:\\Student management system\\StudentManagement.domain\\StudentManagement.domain.csproj",
       "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Dell\\OneDrive\\Desktop\\.net\\Student management system\\StudentManagement.domain\\obj\\",
+      "outputPath": "C:\\Student management system\\StudentManagement.domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

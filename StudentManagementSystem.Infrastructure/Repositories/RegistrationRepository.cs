@@ -1,14 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using StudentManagement.domain.Domain;
 using StudentManagementSystem.Infrastructure.Data;
+using StudentManagementSystem.Infrastructure.Repository;
 
 namespace StudentManagementSystem.Infrastructure.Repositories
 {
-    public class RegistrationRepository : IRegistrationRepository
+    public class RegistrationRepository : GenericRepository<Registration>, IRegistrationRepository
     {
         private readonly ApplicationDbContext _context;
 
-        public RegistrationRepository(ApplicationDbContext context)
+        public RegistrationRepository(ApplicationDbContext context) : base(context)
         {
             _context = context;
         }

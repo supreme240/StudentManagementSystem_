@@ -10,6 +10,7 @@ namespace StudentManagementSystem.Infrastructure.Repositories
         Task<Registration?> GetByIdAsync(int id);
         Task UpdateAsync(Registration registration);
         Task DeleteAsync(int id);
+        //test cast
         Task SaveChangesAsync();
     }
 }

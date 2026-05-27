@@ -16,6 +16,7 @@ namespace StudentManagementSystem.Infrastructure.Repository
 
         public async Task<T?> GetByIdAsync(int id) => await _dbSet.FindAsync(id);
 
+        // this is test
         public async Task<List<T>> GetAllAsync() => await _dbSet.ToListAsync();
 
         public async Task AddAsync(T entity) => await _dbSet.AddAsync(entity);

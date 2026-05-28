@@ -30,5 +30,5 @@ namespace StudentManagementSystem.Infrastructure.Repository
         }
 
         public async Task SaveChangesAsync() => await _context.SaveChangesAsync();
-    }
+    }//
 }

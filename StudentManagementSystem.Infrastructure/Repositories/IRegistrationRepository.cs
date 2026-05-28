@@ -12,4 +12,4 @@ namespace StudentManagementSystem.Infrastructure.Repositories
         Task DeleteAsync(int id);
         Task SaveChangesAsync();
     }
-}
+} //

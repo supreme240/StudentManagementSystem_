@@ -1,6 +1,16 @@
-﻿@model StudentManagement.domain.Domain.Student // this view recieves student object
-<h1> Student details</h1 >
-    <p>Id:@Model.Id</p>
-    <p>Name:@Model.Name</p>
-    <p>Age:@Model.Age</p>
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
 
+<div class="text-center mt-5">
+    <h1 class="display-4">Welcome to the Student Management System</h1>
+    
+
+    <div class="mt-4">
+        <a asp-controller="LogIn"
+           asp-action="Login"
+           class="btn btn-dark btn-lg px-5">
+             Login
+        </a>
+    </div>
+</div>

@@ -17,6 +17,7 @@ builder.Services.AddScoped<IStudentChild, ChildStudentService>();
 builder.Services.AddScoped<IRegistrationService, RegistrationService>();
 builder.Services.AddScoped<IRegistrationRepository, RegistrationRepository>();
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+builder.Services.AddScoped<ILogIn, LogInService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -36,7 +37,7 @@ app.MapStaticAssets();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}")
+    pattern: "{controller=Account}/{action=LogIn}/{id?}")
     .WithStaticAssets();
 
 

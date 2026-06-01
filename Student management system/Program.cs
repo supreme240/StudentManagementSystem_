@@ -2,8 +2,8 @@ using ApplicationStudentManagement.Interfaces;
 using ApplicationStudentManagement.Services;
 using Microsoft.EntityFrameworkCore;
 using StudentManagementSystem.Infrastructure.Data;
-using StudentManagementSystem.Infrastructure.Repositories;
-using StudentManagementSystem.Infrastructure.Repository;
+using StudentManagementSystem.Infrastructure.Repositories.GenericRepo;
+using StudentManagementSystem.Infrastructure.Repositories.RegistrationRepo;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,9 +11,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddControllersWithViews();
-builder.Services.AddScoped<IStudentInterface, StudentService>();
-builder.Services.AddScoped<IStudentInterface, NewStudentService>();
-builder.Services.AddScoped<IStudentChild, ChildStudentService>();
+builder.Services.AddScoped<IStudentService, StudentService>();
+builder.Services.AddScoped<IStudentService, StudentService>();
 builder.Services.AddScoped<IRegistrationService, RegistrationService>();
 builder.Services.AddScoped<IRegistrationRepository, RegistrationRepository>();
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
@@ -28,16 +27,15 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapStaticAssets();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}")
-    .WithStaticAssets();
+    pattern: "{controller=Login}/{action=Index}/{id?}");
 
 
 app.Run();

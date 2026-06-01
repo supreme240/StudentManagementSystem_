@@ -12,11 +12,6 @@ namespace ApplicationStudentManagement.Interfaces
         Task UpdateRegistrationAsync(Registration registration);
 
         Task DeleteRegistrationAsync(int id);
-
-        // Keep old methods if you are still using them
-        Registration GetRegistrationInformation();
-        List<Registration> GetAllRegistrations();
-        Task<string?> GetALLRegistrationsInformationAsync();
-        void AddRegistration(Registration registration);
+        Task<List<Registration>> GetByStudentCourseAsync(string studentCourse);
     }
 }

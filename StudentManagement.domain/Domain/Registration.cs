@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Globalization;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
@@ -16,5 +17,6 @@ namespace StudentManagement.domain.Domain
         public DateTime DateOfBirth { get; set; } = DateTime.MinValue;
         public string Gender { get; set; } = string.Empty;
         public string Course { get; set; } = string.Empty;
+        public string Password { get; set; } = string.Empty;
     }
 }

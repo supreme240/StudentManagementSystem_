@@ -1,6 +1,6 @@
 ﻿using ApplicationStudentManagement.Interfaces;
 using StudentManagement.domain.Domain;
-using StudentManagementSystem.Infrastructure.Repositories;
+using StudentManagementSystem.Infrastructure.Repositories.RegistrationRepo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,11 +10,11 @@ namespace ApplicationStudentManagement.Services
 {
     public class RegistrationService : IRegistrationService
     {
-        private readonly IRegistrationRepository _repository;
+        private readonly IRegistrationRepository _registrationRepository;
 
-        public RegistrationService(IRegistrationRepository repository)
+        public RegistrationService(IRegistrationRepository registrationRepository)
         {
-            _repository = repository;
+            _registrationRepository = registrationRepository;
         }
 
         public async Task AddRegistrationAsync(Registration registration)
@@ -22,55 +22,35 @@ namespace ApplicationStudentManagement.Services
             if (registration == null)
                 throw new ArgumentNullException(nameof(registration));
 
-            await _repository.AddAsync(registration);
-            await _repository.SaveChangesAsync();
+            await _registrationRepository.AddAsync(registration);
+            await _registrationRepository.SaveChangesAsync();
         }
 
         public async Task<List<Registration>> GetAllRegistrationsAsync()
         {
-            return await _repository.GetAllAsync();
+            return await _registrationRepository.GetAllAsync();
         }
 
         public async Task<Registration?> GetRegistrationByIdAsync(int id)
         {
-            return await _repository.GetByIdAsync(id);
+            return await _registrationRepository.GetByIdAsync(id);
         }
 
         public async Task UpdateRegistrationAsync(Registration registration)
         {
-            await _repository.UpdateAsync(registration);
-            await _repository.SaveChangesAsync();
+            _registrationRepository.Update(registration);
+            await _registrationRepository.SaveChangesAsync();
         }
 
         public async Task DeleteRegistrationAsync(int id)
         {
-            await _repository.DeleteAsync(id);
-            await _repository.SaveChangesAsync();
+            await _registrationRepository.DeleteAsync(id);
+            await _registrationRepository.SaveChangesAsync();
         }
 
-
-
-        public Registration GetRegistrationInformation()
+        public async Task<List<Registration>> GetByStudentCourseAsync(string studentCourse)
         {
-            return GetAllRegistrationsAsync().Result.FirstOrDefault() ?? new Registration();
-        }
-
-        public List<Registration> GetAllRegistrations()
-        {
-            return GetAllRegistrationsAsync().Result;
-        }
-
-        public void AddRegistration(Registration registration)
-        {
-            if (registration == null)
-                throw new ArgumentNullException(nameof(registration));
-
-            AddRegistrationAsync(registration).Wait();
-        }
-
-        public Task<string?> GetALLRegistrationsInformationAsync()
-        {
-            throw new NotImplementedException();
+            return await _registrationRepository.GetByStudentCourseAsync(studentCourse);
         }
     }
 }

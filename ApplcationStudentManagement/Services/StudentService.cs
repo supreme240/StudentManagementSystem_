@@ -1,39 +1,27 @@
 ﻿using ApplicationStudentManagement.Interfaces;
 using StudentManagement.domain.Domain;
+using System.Security.Cryptography;
 
 namespace ApplicationStudentManagement.Services
 {
-    public class StudentService : IStudentInterface
+    public class StudentService : IStudentService
     {
-        private readonly IStudentChild studentChild;
-
-        public StudentService(IStudentChild studentChild)
-        {
-            this.studentChild = studentChild;
-        }
         public Student GetNewStudentInformation()
         {
-           var result= studentChild.GetChildStudentInformation();
-            return result;
+            Student s2=new Student();
+            s2.Id = 1;
+            s2.Name = "ram";
+            s2.Age = 22;
+            return s2;
         }
 
         public Student GetStudentInformation()
         {
-            Student s1= new Student();
-            s1.Id = 1;
-            s1.Name = "supreme";
-            s1.Age = 22;
-            return s1;
-        }
-
-        Student IStudentInterface.GetNewStudentInformation()
-        {
-            throw new NotImplementedException();
-        }
-
-        Student IStudentInterface.GetStudentInformation()
-        {
-            throw new NotImplementedException();
+            Student s2=new Student();
+          s2.Id= 1;
+            s2.Name= "ram";
+            s2.Age= 22;
+            return s2;
         }
     }
 }

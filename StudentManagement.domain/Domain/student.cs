@@ -1,5 +1,4 @@
-﻿namespace StudentManagement.domain.Domain /*it is like a folder name for code
-                                           *helps orgaize classes properly */
+﻿namespace StudentManagement.domain.Domain 
 {
     public class Student
     {

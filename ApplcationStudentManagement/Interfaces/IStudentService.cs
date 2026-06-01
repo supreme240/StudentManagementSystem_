@@ -3,7 +3,7 @@ using StudentManagement.domain.Domain;
 
 namespace ApplicationStudentManagement.Interfaces
 {
-    public interface IStudentInterface
+    public interface IStudentService
     {
         Student GetStudentInformation();
         Student GetNewStudentInformation();

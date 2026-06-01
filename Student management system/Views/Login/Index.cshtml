@@ -1,0 +1,42 @@
+﻿@model LoginViewModel
+
+<h2>Login</h2>
+
+<form asp-action="Login" method="post">
+
+    <div class="mb-3">
+        <label>Email</label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label>Password</label>
+        <input asp-for="Password" type="password" class="form-control" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label>Confirm Password</label>
+        <input asp-for="ConfirmPassword" type="password" class="form-control" />
+        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+        Login
+    </button>
+
+    @if (ViewBag.ErrorMessage != null)
+    {
+        <div class="text-danger mt-2">
+            @ViewBag.ErrorMessage
+        </div>
+    }
+
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

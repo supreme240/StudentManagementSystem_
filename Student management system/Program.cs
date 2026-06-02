@@ -19,6 +19,10 @@ builder.Services.AddScoped<IRegistrationRepository, RegistrationRepository>();
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 builder.Services.AddScoped<ILogIn,LogInService>();
 builder.Services.AddScoped<IForgotPassword, ForgotPasswordService>();
+
+builder.Services.AddSession();
+builder.Services.AddHttpContextAccessor();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -41,5 +45,6 @@ app.MapControllerRoute(
     pattern: "{controller=LogIn}/{action=LogIn}/{id?}")
     .WithStaticAssets();
 
+app.UseSession();
 
 app.Run();

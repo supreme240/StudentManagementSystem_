@@ -93,5 +93,11 @@ namespace StudentManagementSystem.Controllers
         {
             return View();
         }
+
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("LogIn", "LogIn");
+        } 
     }
 }

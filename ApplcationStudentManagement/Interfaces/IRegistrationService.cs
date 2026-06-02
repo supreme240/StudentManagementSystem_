@@ -12,6 +12,8 @@ namespace ApplicationStudentManagement.Interfaces
         Task UpdateRegistrationAsync(Registration registration);
 
         Task DeleteRegistrationAsync(int id);
+        Task<Registration> CheckAUthenticationAsync(string email, string password);
+        Task<Registration> FindByEmailAndPhoneAsync(string email, string phone);
         Task<List<Registration>> GetByStudentCourseAsync(string studentCourse);
     }
 }

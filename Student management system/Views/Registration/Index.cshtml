@@ -1,4 +1,4 @@
-﻿@model IEnumerable<StudentManagement.domain.Domain.Registration>
+﻿@model IEnumerable<RegistrationViewModel>
 
 @{
     ViewData["Title"] = "Registration List";
@@ -7,9 +7,16 @@
 <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2>Student Registration List</h2>
-        <a asp-action="Create" class="btn btn-success btn-lg">
-            <i class="fas fa-plus"></i> Add New Registration
-        </a>
+
+        <div class="d-flex gap-2">
+            <a asp-action="Create" class="btn btn-success">
+                Add New Registration
+            </a>
+
+            <a asp-action="Logout" class="btn btn-danger">
+                Logout
+            </a>
+        </div>
     </div>
 
     @if (TempData["Success"] != null)
@@ -64,4 +71,5 @@
             }
         </tbody>
     </table>
+
 </div>

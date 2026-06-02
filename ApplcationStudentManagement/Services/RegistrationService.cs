@@ -52,5 +52,15 @@ namespace ApplicationStudentManagement.Services
         {
             return await _registrationRepository.GetByStudentCourseAsync(studentCourse);
         }
+
+        public async Task<Registration> CheckAUthenticationAsync(string email, string password)
+        {
+            return await _registrationRepository.CheckAuthenticationAsync(email, password);
+        }
+
+        public async Task<Registration> FindByEmailAndPhoneAsync(string email, string phone)
+        {
+            return await _registrationRepository.FindByEmailAndPhoneAsync(email, phone);
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ApplicationStudentManagement.Interfaces;
 using StudentManagement.domain.Domain;
+using Student_management_system.Models;
 
 namespace Student_management_system.Controllers
 {
@@ -8,6 +9,7 @@ namespace Student_management_system.Controllers
     {
         private readonly IRegistrationService _registrationService;
 
+        //lazy initialization
         public RegistrationController(IRegistrationService registrationService)
         {
             _registrationService = registrationService;
@@ -17,7 +19,17 @@ namespace Student_management_system.Controllers
         public async Task<IActionResult> Index()
         {
             var registrations = await _registrationService.GetAllRegistrationsAsync();
-            return View(registrations);
+
+            var vm = registrations.Select(r => new RegistrationViewModel {
+                Id = r.Id,
+                FullName = r.FullName,
+                Address = r.Address,
+                PhoneNumber = r.PhoneNumber,
+                Gender = r.Gender,
+                Course = r.Course,
+                DateOfBirth = r.DateOfBirth
+            });
+            return View(vm);
         }
 
         // GET: Student/Create
@@ -29,16 +41,30 @@ namespace Student_management_system.Controllers
         // POST: Student/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Registration registration)
+        public async Task<IActionResult> Create(RegistrationViewModel registrationViewModel)
         {
+            if (registrationViewModel.Password != registrationViewModel.ConfirmPassword) {
+                ModelState.AddModelError("ConfirmPassword", "Password doesn't match!");
+                return View(registrationViewModel);
+            }
             if (ModelState.IsValid)
             {
-                await _registrationService.AddRegistrationAsync(registration);   
-                TempData["SuccessMessage"] = "Registration successful!";
-                return RedirectToAction("Index");
-            }
+                var registration = new Registration { 
+                    FullName = registrationViewModel.FullName,
+                    Email = registrationViewModel.Email,
+                    PhoneNumber = registrationViewModel.PhoneNumber,
+                    Address = registrationViewModel.Address,
+                    DateOfBirth = registrationViewModel.DateOfBirth,
+                    Gender = registrationViewModel.Gender,
+                    Course = registrationViewModel.Course,
+                    Password = registrationViewModel.Password
+                };
+                await _registrationService.AddRegistrationAsync(registration);
 
-            return View(registration);
+                TempData["SuccessMessage"] = "Registrtaion Successfull!";
+                return RedirectToAction("Index","Login");
+            }
+            return View(registrationViewModel);
         }
 
         // GET: Student/Edit/5
@@ -70,7 +96,6 @@ namespace Student_management_system.Controllers
             return View(registration);   
         }
 
-
         [HttpGet]
         public async Task<IActionResult> Delete(int id)
         {
@@ -89,6 +114,10 @@ namespace Student_management_system.Controllers
             await _registrationService.DeleteRegistrationAsync(id);
             TempData["Success"] = "Registration deleted successfully!";
             return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult Logout() {
+            return RedirectToAction("Create");
         }
     }
 }

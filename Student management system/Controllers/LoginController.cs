@@ -1,10 +1,14 @@
 ﻿using ApplicationStudentManagement.Interfaces;
 using ApplicationStudentManagement.Services;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Internal;
+using Microsoft.IdentityModel.Tokens;
 using Student_management_system.Models;
 using StudentManagementSystem.Infrastructure.Repositories.RegistrationRepo;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace Student_management_system.Controllers {
@@ -17,13 +21,14 @@ namespace Student_management_system.Controllers {
         }
 
         // GET: LoginController
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> Index(LoginViewModel loginViewModel) {
+        public async Task<IActionResult> Index(LoginViewModel loginViewModel, string? returnUrl) {
 
             var user = await _registrationService.CheckAUthenticationAsync(loginViewModel.Email, loginViewModel.Password);
 
@@ -31,7 +36,29 @@ namespace Student_management_system.Controllers {
                 ViewBag.ErrorMessage = "Invalid email or password";
                 return View(loginViewModel);
             }
-            return RedirectToAction("Index", "Registration");
+
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.Name, user.FullName),
+                new Claim(ClaimTypes.Email, user.Email),
+                new Claim(ClaimTypes.Role, user.Role),
+                new Claim("Course", user.Course)
+            };
+
+            var claimsIdentity = new ClaimsIdentity(claims, 
+                CookieAuthenticationDefaults.AuthenticationScheme);
+
+            await HttpContext.SignInAsync(
+                CookieAuthenticationDefaults.AuthenticationScheme,
+                new ClaimsPrincipal(claimsIdentity),
+                new AuthenticationProperties { IsPersistent = true });
+
+            if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
+                return Redirect(returnUrl);
+
+            return user.Role == "Admin"
+                ? RedirectToAction("", "Registration")
+                : RedirectToAction("Index", "Home");
         }
 
         [HttpGet]
@@ -68,6 +95,20 @@ namespace Student_management_system.Controllers {
 
             await _registrationService.UpdateRegistrationAsync(user);
             return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Logout() {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            HttpContext.Session.Clear();
+
+            Response.Headers["Cache-Control"] = "no-cache, no-store, must-revalidate";
+            Response.Headers["Pragma"] = "no-cache";
+            Response.Headers["Expires"] = "0";
+
+            return RedirectToAction("Index");
+
         }
 
         // GET: LoginController/Details/5

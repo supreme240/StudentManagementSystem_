@@ -1,5 +1,6 @@
 using ApplicationStudentManagement.Interfaces;
 using ApplicationStudentManagement.Services;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using StudentManagementSystem.Infrastructure.Data;
 using StudentManagementSystem.Infrastructure.Repositories.GenericRepo;
@@ -16,6 +17,25 @@ builder.Services.AddScoped<IStudentService, StudentService>();
 builder.Services.AddScoped<IRegistrationService, RegistrationService>();
 builder.Services.AddScoped<IRegistrationRepository, RegistrationRepository>();
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+
+// Configure Distributed Memory Cache & Active Session Providers
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(options => 
+{ 
+    options.IdleTimeout = TimeSpan.FromMinutes(30); 
+    options.Cookie.HttpOnly = true; 
+    options.Cookie.IsEssential = true; 
+});
+
+// Register Cookie Authentication Scheme Properties'
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+     {
+         options.LoginPath = "/Registrtaion/Index";
+         options.AccessDeniedPath = "/Login/Index";
+         options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
+     });
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -30,12 +50,12 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 
+app.UseSession();
+app.UseAuthentication();
 app.UseAuthorization();
-
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Login}/{action=Index}/{id?}");
-
 
 app.Run();

@@ -1,6 +1,8 @@
-﻿@model StudentManagement.domain.Domain.Student 
-<h1> Student details</h1 >
-    <p>Id:@Model.Id</p>
-    <p>Name:@Model.Name</p>
-    <p>Age:@Model.Age</p>
+﻿<h1>Hello! @User.Identity?.Name</h1 >
+
+<form asp-action="Logout" method="post">
+    <div class="d-flex gap-2">
+        <button type="submit" class="btn btn-danger">Logout</button>
+    </div>
+</form>
 

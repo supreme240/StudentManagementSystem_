@@ -2,6 +2,7 @@
 using ApplicationStudentManagement.Interfaces;
 using StudentManagement.domain.Domain;
 using Student_management_system.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Student_management_system.Controllers
 {
@@ -15,7 +16,8 @@ namespace Student_management_system.Controllers
             _registrationService = registrationService;
         }
 
-        // GET: Student/Index
+        // GET: Registration/Index
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Index()
         {
             var registrations = await _registrationService.GetAllRegistrationsAsync();
@@ -32,13 +34,13 @@ namespace Student_management_system.Controllers
             return View(vm);
         }
 
-        // GET: Student/Create
+        // GET: Registration/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Student/Create
+        // POST: Registration/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(RegistrationViewModel registrationViewModel)
@@ -57,8 +59,9 @@ namespace Student_management_system.Controllers
                     DateOfBirth = registrationViewModel.DateOfBirth,
                     Gender = registrationViewModel.Gender,
                     Course = registrationViewModel.Course,
-                    Password = registrationViewModel.Password
-                };
+                    Password = registrationViewModel.Password,
+                    Role = registrationViewModel.Role
+                };  
                 await _registrationService.AddRegistrationAsync(registration);
 
                 TempData["SuccessMessage"] = "Registrtaion Successfull!";
@@ -67,7 +70,7 @@ namespace Student_management_system.Controllers
             return View(registrationViewModel);
         }
 
-        // GET: Student/Edit/5
+        // GET: Registration/Edit/5
         // GET: Open Edit Form
         public async Task<IActionResult> Edit(int id)
         {
@@ -106,7 +109,7 @@ namespace Student_management_system.Controllers
             return View(registration);
         }
 
-        // POST: Student/Delete/5
+        // POST: Registration/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

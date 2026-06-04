@@ -18,5 +18,6 @@ namespace StudentManagement.domain.Domain
         public string Gender { get; set; } = string.Empty;
         public string Course { get; set; } = string.Empty;
         public string Password { get; set; } = string.Empty;
+        public string Role {get; set; } = "Student";
     }
 }

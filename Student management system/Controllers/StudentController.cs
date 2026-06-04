@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ApplicationStudentManagement.Interfaces;
 using StudentManagement.domain.Domain;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Student_management_system.Controllers
 {
@@ -19,6 +20,7 @@ namespace Student_management_system.Controllers
         }
 
         // GET: Student/Index
+        [Authorize(Roles ="Admin")]
         public IActionResult Index()
         {
             var registrations = _registrationService.GetAllRegistrations();

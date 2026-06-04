@@ -1,4 +1,5 @@
 ﻿using ApplicationStudentManagement.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using StudentManagement.domain.Domain;
 
@@ -14,6 +15,7 @@ namespace ApplicationStudentManagement.Controllers
         }
 
         // List All Registrations
+        [Authorize(Roles ="Admin")]
         public async Task<IActionResult> Index()
         {
             var registrations = await _service.GetAllRegistrationsAsync();

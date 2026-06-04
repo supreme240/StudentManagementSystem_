@@ -1,6 +1,9 @@
 ﻿using ApplicationStudentManagement.Interfaces;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using StudentManagement.domain.Domain;
+using System.Security.Claims;
 
 namespace StudentManagementSystem.Controllers
 {
@@ -25,7 +28,7 @@ namespace StudentManagementSystem.Controllers
         // POST: /Account/Login
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult LogIn(LogIn model)
+        public async Task<IActionResult> LogIn(LogIn model, string? returnUrl)
         {
             if (!ModelState.IsValid)
                 return View(model);
@@ -40,9 +43,23 @@ namespace StudentManagementSystem.Controllers
                 ViewBag.ErrorMessage = "login failed";
                 return View(model);
             }
-
-            // ✅ Success → redirect to Student list
-            return RedirectToAction("Index", "Student");
+            var claims = new List<Claim> {
+             new Claim(ClaimTypes.Name, user.FullName),
+             new Claim(ClaimTypes.Role, user.Role),
+             new Claim("Course", user.Course)
+             };
+            var claimsIdentity = new ClaimsIdentity(claims,
+            CookieAuthenticationDefaults.AuthenticationScheme);
+            await HttpContext.SignInAsync(
+            CookieAuthenticationDefaults.AuthenticationScheme,
+            new ClaimsPrincipal(claimsIdentity),
+            new AuthenticationProperties { IsPersistent = true });
+           
+            if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
+                return Redirect(returnUrl);
+            return user.Role == "Admin"
+            ? RedirectToAction("Index", "Student")
+            : RedirectToAction("Index", "Home");
         }
 
         // GET: /Account/LoginFailed  ← shown when credentials are wrong
@@ -94,6 +111,8 @@ namespace StudentManagementSystem.Controllers
         public IActionResult Logout()
         {
             HttpContext.Session.Clear();
-            return RedirectToAction("Login","Account");        }
+            return RedirectToAction("Login","Account"); 
+        }
+
     }
 }

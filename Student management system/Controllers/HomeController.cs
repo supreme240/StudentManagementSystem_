@@ -1,4 +1,5 @@
 using ApplicationStudentManagement.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Student_management_system.Models;
 using System.Diagnostics;
@@ -15,6 +16,7 @@ namespace Student_management_system.Controllers
 
             this.studentInterface = studentInterface;
         }
+        [Authorize(Roles="Student")]
         public IActionResult Index()
         {
             var data= studentInterface.GetStudentInformation();

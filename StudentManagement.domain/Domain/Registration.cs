@@ -56,6 +56,7 @@ namespace StudentManagement.domain.Domain
         [Compare("Password", ErrorMessage = "Password and Confirm Password do not match.")]
         [Display(Name = "Confirm Password")]
         public string ConfirmPassword { get; set; } = string.Empty;
+        public string Role { get; set; } = "Student";
 
 
 

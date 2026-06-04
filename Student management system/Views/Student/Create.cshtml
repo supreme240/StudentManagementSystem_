@@ -96,12 +96,21 @@
                             <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
                         </div>
 
+                        <!-- Role Selection -->
+                        <div class="mb-3">
+                            <label asp-for="Role" class="form-label">Role</label>
+                            <select asp-for="Role" class="form-control">
+                                <option value="">-- Select Role --</option>
+                                <option value="Student">Student</option>
+                                <option value="Admin">Admin</option>
+                            </select>
+                            <span asp-validation-for="Role" class="text-danger"></span>
+                        </div>
+
                         <div class="text-center mt-4">
                             <button type="submit" class="btn btn-primary btn-lg px-5">Register Now</button>
                             <a asp-action="Index" class="btn btn-secondary btn-lg px-5">Cancel</a>
                         </div>
-
-                      
                     </div>
                 </div>
             </form>

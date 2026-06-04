@@ -34,7 +34,7 @@ namespace StudentManagementSystem.Controllers
                 model.UserNameOrEmail,
                 model.Password
             );
-
+            var password = user.Password;
             if (user == null)
             {
                 ViewBag.ErrorMessage = "login failed";
@@ -94,7 +94,6 @@ namespace StudentManagementSystem.Controllers
         public IActionResult Logout()
         {
             HttpContext.Session.Clear();
-            return RedirectToAction("Login","Account");
-        }
+            return RedirectToAction("Login","Account");        }
     }
 }

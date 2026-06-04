@@ -31,15 +31,21 @@ namespace ApplicationStudentManagement.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Registration registration)
         {
-            if (ModelState.IsValid)
-            {
-                await _service.AddRegistrationAsync(registration);
-                TempData["Success"] = "Registration added successfully!";
-                return RedirectToAction(nameof(Index));
-            }
-            return View(registration);
-        }
+            if (!ModelState.IsValid)
+                return View(registration);
 
+            // Extra safety check
+            if (registration.Role != "Student" && registration.Role != "Admin")
+            {
+                ModelState.AddModelError("Role", "Invalid role selected.");
+                return View(registration);
+            }
+
+            await _service.AddRegistrationAsync(registration);
+            TempData["Success"] = "Registration added successfully!";
+
+            return RedirectToAction(nameof(Index));
+        }
         // Edit Form
         public async Task<IActionResult> Edit(int id)
         {

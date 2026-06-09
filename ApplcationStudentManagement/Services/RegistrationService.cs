@@ -17,13 +17,31 @@ namespace ApplicationStudentManagement.Services
             _repository = repository;
         }
 
-        public async Task AddRegistrationAsync(Registration registration)
+        //
+        public async Task<(bool success, string? error)> AddRegistrationAsync(Registration registration)
         {
             if (registration == null)
                 throw new ArgumentNullException(nameof(registration));
 
+            
+            var all = await _repository.GetAllAsync();
+
+            bool emailExists = all.Any(r => r.Email == registration.Email);
+            bool phoneExists = all.Any(r => r.PhoneNumber == registration.PhoneNumber);
+            bool usernameExists = all.Any(r => r.UserName == registration.UserName);
+
+            if (emailExists)
+                return (false, "This email is already registered.");
+
+            if (phoneExists)
+                return (false, "This phone number is already registered.");
+
+            if (usernameExists)
+                return (false, "This username is already taken.");
+
             await _repository.AddAsync(registration);
             await _repository.SaveChangesAsync();
+            return (true, null);
         }
 
         public async Task<List<Registration>> GetAllRegistrationsAsync()
@@ -65,7 +83,9 @@ namespace ApplicationStudentManagement.Services
             if (registration == null)
                 throw new ArgumentNullException(nameof(registration));
 
-            AddRegistrationAsync(registration).Wait();
+            var result = AddRegistrationAsync(registration).Result;
+            if (!result.success)
+                throw new InvalidOperationException(result.error);
         }
 
         public Task<string?> GetALLRegistrationsInformationAsync()

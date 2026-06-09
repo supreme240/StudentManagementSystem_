@@ -6,7 +6,7 @@ namespace ApplicationStudentManagement.Interfaces
     {
         Task<List<Roles>> GetAllRolesAsync();
         Task<Roles?> GetRoleByIdAsync(int id);
-        Task AddRoleAsync(Roles role);
+        Task<(bool success, string? error)> AddRoleAsync(Roles role);
         Task UpdateRoleAsync(Roles role);
         Task DeleteRoleAsync(int id);
     }

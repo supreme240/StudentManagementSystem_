@@ -49,18 +49,27 @@ namespace Student_management_system.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin,student")]
+        //
         public async Task<IActionResult> Create(Registration registration)
         {
             if (ModelState.IsValid)
             {
-                await _registrationService.AddRegistrationAsync(registration);
+                var (success, error) = await _registrationService.AddRegistrationAsync(registration);
+
+                if (!success)
+                {
+                    TempData["Error"] = error;  // shown via existing alert in your view
+                    var roleList = await _rolesService.GetAllRolesAsync();
+                    ViewBag.Roles = new SelectList(roleList, "RoleName", "RoleName");
+                    return View(registration);
+                }
+
                 TempData["SuccessMessage"] = "Registration successful!";
                 return RedirectToAction("Create");
             }
 
-            // Refetch roles if validation fails
             var roles = await _rolesService.GetAllRolesAsync();
-            ViewBag.Roles = new SelectList(roles, "Role", "Role");
+            ViewBag.Roles = new SelectList(roles, "RoleName", "RoleName");
             return View(registration);
         }
 

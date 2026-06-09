@@ -37,7 +37,14 @@ namespace Student_management_system.Controllers
         {
             if (ModelState.IsValid)
             {
-                await _rolesService.AddRoleAsync(role);
+                var (success, error) = await _rolesService.AddRoleAsync(role);
+
+                if (!success)
+                {
+                    TempData["Error"] = error;
+                    return View(role);
+                }
+
                 TempData["Success"] = "Role added successfully!";
                 return RedirectToAction(nameof(Index));
             }

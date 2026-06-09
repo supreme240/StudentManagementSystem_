@@ -24,10 +24,17 @@ namespace ApplicationStudentManagement.Services
             return await _context.Roles.FirstOrDefaultAsync(r => r.Id == id);
         }
 
-        public async Task AddRoleAsync(Roles role)
+        public async Task<(bool success, string? error)> AddRoleAsync(Roles role)
         {
+            bool roleExists = await _context.Roles
+                .AnyAsync(r => r.RoleName.ToLower() == role.RoleName.ToLower());
+
+            if (roleExists)
+                return (false, $"Role '{role.RoleName}' already exists.");
+
             await _context.Roles.AddAsync(role);
             await _context.SaveChangesAsync();
+            return (true, null);
         }
 
         public async Task UpdateRoleAsync(Roles role)

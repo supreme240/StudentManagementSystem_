@@ -1,14 +1,54 @@
 ﻿@model StudentManagement.domain.Domain.Roles
-<div class="container mt-4">
-    <h2>Add Role</h2>
-    <form asp-action="Create" method="post">
-        @Html.AntiForgeryToken()
-        <div class="mb-3">
-            <label asp-for="RoleName" class="form-label">Role Name</label> 
-            <input asp-for="RoleName" class="form-control" placeholder="e.g. admin or student" />
-            <span asp-validation-for="RoleName" class="text-danger"></span>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">Add New Role</h4>
+                </div>
+
+                <div class="card-body">
+
+                    @if (TempData["Error"] != null)
+                    {
+                        <div class="alert alert-danger alert-dismissible fade show">
+                            @TempData["Error"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                    }
+
+                    @if (TempData["Success"] != null)
+                    {
+                        <div class="alert alert-success alert-dismissible fade show">
+                            @TempData["Success"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                    }
+
+                    <form asp-action="Create" method="post">
+                        @Html.AntiForgeryToken()
+
+                        <div class="mb-3">
+                            <label asp-for="RoleName" class="form-label fw-semibold">Role Name</label>
+                            <input asp-for="RoleName" class="form-control" placeholder="e.g. Admin or Student" />
+                            <span asp-validation-for="RoleName" class="text-danger small"></span>
+                        </div>
+
+                        <div class="d-flex gap-2 mt-4">
+                            <button type="submit" class="btn btn-primary px-4">Save</button>
+                            <a asp-action="Index" class="btn btn-secondary px-4">Cancel</a>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
         </div>
-        <button type="submit" class="btn btn-primary">Save</button>
-        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
-    </form>
+    </div>
 </div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

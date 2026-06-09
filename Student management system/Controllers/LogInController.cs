@@ -1,6 +1,9 @@
 ﻿using ApplicationStudentManagement.Interfaces;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using StudentManagement.domain.Domain;
+using System.Security.Claims;
 
 namespace StudentManagementSystem.Controllers
 {
@@ -15,38 +18,49 @@ namespace StudentManagementSystem.Controllers
             _forgotPassword = forgotPassword;
         }
 
-
-        // GET:
+        // GET: /LogIn/LogIn
         [HttpGet]
         public IActionResult LogIn()
         {
             return View();
         }
 
-        // POST: /Login
+        // POST: /LogIn/Login
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Login(LogIn model)
+        public async Task<IActionResult> Login(LogIn model)
         {
+            // ✅ Return to correct view name on invalid
             if (!ModelState.IsValid)
-                return View(model);
+                return View("LogIn", model); // ← "LogIn" not "Login"
 
-            var user = _logIn.ValidateUser(
-                model.UserNameOrEmail,
-                model.Password
-            );
+            var user = await _logIn.ValidateUserAsync(model.UserNameOrEmail, model.Password);
 
             if (user == null)
             {
-                //  Redirect back with error via route query
-                return RedirectToAction("LoginFailed");
+                // ✅ Don't redirect — stay on page with error
+                ViewBag.ErrorMessage = "Login failed. Incorrect username/email or password.";
+                return View("LogIn", model); // ← show error on same page
             }
 
-            //  Success - redirect to Student list
-            return RedirectToAction("Index", "Student");
+            var claims = new List<Claim>
+    {
+        new Claim(ClaimTypes.Name, user.UserName),
+        new Claim(ClaimTypes.Role, user.Role),
+        new Claim("FullName", user.FullName),
+    };
+
+            var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+            var principal = new ClaimsPrincipal(identity);
+
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+
+            return user.Role.Equals("Admin", StringComparison.OrdinalIgnoreCase)
+                ? RedirectToAction("Index", "Student")
+                : RedirectToAction("Create", "Student");
         }
 
-        // GET:LoginFailed  / shown when credentials are wrong
+        // GET: /LogIn/LoginFailed
         [HttpGet]
         public IActionResult LoginFailed()
         {
@@ -54,21 +68,22 @@ namespace StudentManagementSystem.Controllers
             return View("Login", new LogIn());
         }
 
+        // GET: /LogIn/ForgotPassword
         [HttpGet]
         public IActionResult ForgotPassword()
         {
             return View(new ForgotPassword());
         }
 
-        // POST: /LogIn/ForgetPassword
+        // POST: /LogIn/ForgotPassword
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult ForgotPassword(ForgotPassword model)
+        public async Task<IActionResult> ForgotPassword(ForgotPassword model)
         {
             if (!ModelState.IsValid)
                 return View(model);
 
-            int? userId = _forgotPassword.ValidateUser(model.Email, model.PhoneNumber);
+            int? userId = await _forgotPassword.ValidateUserAsync(model.Email, model.PhoneNumber);
 
             if (userId == null)
             {
@@ -76,7 +91,7 @@ namespace StudentManagementSystem.Controllers
                 return View(model);
             }
 
-            bool success = _forgotPassword.ResetPassword(userId.Value, model.Password);
+            bool success = await _forgotPassword.ResetPasswordAsync(userId.Value, model.Password);
 
             if (!success)
             {
@@ -87,17 +102,27 @@ namespace StudentManagementSystem.Controllers
             return RedirectToAction("ForgotPasswordSuccess");
         }
 
-        // GET: /LogIn/ForgetPasswordSuccess
+        // GET: /LogIn/ForgotPasswordSuccess
         [HttpGet]
         public IActionResult ForgotPasswordSuccess()
         {
             return View();
         }
 
-        public IActionResult Logout()
+        // GET: /LogIn/AccessDenied
+        [HttpGet]
+        public IActionResult AccessDenied()
         {
+            return View();
+        }
+
+        // POST: /LogIn/Logout
+        [HttpPost]
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             HttpContext.Session.Clear();
             return RedirectToAction("LogIn", "LogIn");
-        } 
+        }
     }
 }

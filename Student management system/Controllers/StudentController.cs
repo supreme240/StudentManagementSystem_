@@ -1,74 +1,87 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using ApplicationStudentManagement.Interfaces;
 using StudentManagement.domain.Domain;
 
 namespace Student_management_system.Controllers
 {
+    [Authorize]
     public class StudentController : Controller
     {
         private readonly IRegistrationService _registrationService;
+        private readonly IRolesService _rolesService;
 
-        public StudentController(IRegistrationService registrationService)
+        public StudentController(IRegistrationService registrationService, IRolesService rolesService)
         {
             _registrationService = registrationService;
-        }
-        public async Task<IActionResult> GetRegistrationInformation()
-        {
-            var registration = await _registrationService.GetALLRegistrationsInformationAsync();
-            return View(registration);
+            _rolesService = rolesService;
         }
 
-        // GET: Student/Index
-        public IActionResult Index()
+        // GET: Student/Index — Admin only
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Index()
         {
-            var registrations = _registrationService.GetAllRegistrations();
+            var registrations = await _registrationService.GetAllRegistrationsAsync();
             return View(registrations);
         }
 
-        // GET: Student/Details/5
-        public IActionResult Details(int id)
+        // GET: Student/Details/5 — Admin only
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Details(int id)
         {
-            _ = id; // mark as used until you implement lookup by id
-            var registration = _registrationService.GetRegistrationInformation(); // or create GetById later
+            var registration = await _registrationService.GetRegistrationByIdAsync(id);
+            if (registration == null)
+                return NotFound();
             return View(registration);
         }
 
-        // GET: Student/Create
-        public IActionResult Create()
+        // GET: Student/Create — Admin & Student
+        [Authorize(Roles = "Admin,student")]
+        public async Task<IActionResult> Create()
         {
+            var roles = await _rolesService.GetAllRolesAsync();
+            ViewBag.Roles = new SelectList(roles, "RoleName", "RoleName");
             return View();
         }
 
-        // POST: Student/Create
+        // POST: Student/Create — Admin & Student
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Registration registration)
+        [Authorize(Roles = "Admin,student")]
+        public async Task<IActionResult> Create(Registration registration)
         {
             if (ModelState.IsValid)
             {
-                _registrationService.AddRegistration(registration);   // ← Fixed
+                await _registrationService.AddRegistrationAsync(registration);
                 TempData["SuccessMessage"] = "Registration successful!";
-                return RedirectToAction("Index");
+                return RedirectToAction("Create");
             }
 
+            // Refetch roles if validation fails
+            var roles = await _rolesService.GetAllRolesAsync();
+            ViewBag.Roles = new SelectList(roles, "Role", "Role");
             return View(registration);
         }
 
-        // GET: Student/Edit/5
-        // GET: Open Edit Form
+        // GET: Student/Edit/5 — Admin only
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int id)
         {
             var registration = await _registrationService.GetRegistrationByIdAsync(id);
             if (registration == null)
-            {
                 return NotFound();
-            }
-            return View(registration);   // This should open Edit.cshtml
+
+            // Preselect current role
+            var roles = await _rolesService.GetAllRolesAsync();
+            ViewBag.Roles = new SelectList(roles, "Role", "Role", registration.Role);
+            return View(registration);
         }
 
-        // POST: Save Edited Data
+        // POST: Student/Edit — Admin only
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(Registration registration)
         {
             if (ModelState.IsValid)
@@ -77,13 +90,17 @@ namespace Student_management_system.Controllers
                 TempData["Success"] = "Registration updated successfully!";
                 return RedirectToAction(nameof(Index));
             }
-            return View(registration);   // Return to Edit form if validation fails
+
+            // Refetch roles if validation fails
+            var roles = await _rolesService.GetAllRolesAsync();
+            ViewBag.Roles = new SelectList(roles, "Role", "Role", registration.Role);
+            return View(registration);
         }
 
-
-        // ✅ Keep Only This (POST Delete)
+        // POST: Student/Delete — Admin only
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int id)
         {
             await _registrationService.DeleteRegistrationAsync(id);

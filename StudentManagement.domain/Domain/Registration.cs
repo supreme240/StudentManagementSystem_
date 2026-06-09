@@ -57,6 +57,8 @@ namespace StudentManagement.domain.Domain
         [Display(Name = "Confirm Password")]
         public string ConfirmPassword { get; set; } = string.Empty;
 
+        [Required(ErrorMessage = "Please select a role")]
+        public string Role { get; set; } = string.Empty;
 
 
 

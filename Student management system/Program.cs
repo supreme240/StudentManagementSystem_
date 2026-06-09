@@ -1,5 +1,7 @@
 using ApplicationStudentManagement.Interfaces;
 using ApplicationStudentManagement.Services;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using StudentManagementSystem.Infrastructure.Data;
 using StudentManagementSystem.Infrastructure.Repositories;
@@ -10,19 +12,30 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews()
+    .AddApplicationPart(typeof(Student_management_system.Controllers.StudentController).Assembly)
+    .AddApplicationPart(typeof(StudentManagementSystem.Controllers.LogInController).Assembly);
+
+
 builder.Services.AddScoped<IStudentInterface, StudentService>();
 builder.Services.AddScoped<IStudentInterface, NewStudentService>();
 builder.Services.AddScoped<IStudentChild, ChildStudentService>();
 builder.Services.AddScoped<IRegistrationService, RegistrationService>();
 builder.Services.AddScoped<IRegistrationRepository, RegistrationRepository>();
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-builder.Services.AddScoped<ILogIn,LogInService>();
+builder.Services.AddScoped<ILogIn, LogInService>();
 builder.Services.AddScoped<IForgotPassword, ForgotPasswordService>();
+builder.Services.AddScoped<IRolesService, RolesService>();
 
 builder.Services.AddSession();
 builder.Services.AddHttpContextAccessor();
-
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+.AddCookie(options =>
+{
+    options.LoginPath = "/LogIn/LogIn";
+    options.AccessDeniedPath = "/LogIn/LogIn";
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -36,15 +49,14 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseRouting();
 
+app.UseSession();
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapStaticAssets();
-
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=LogIn}/{action=LogIn}/{id?}")
     .WithStaticAssets();
-
-app.UseSession();
 
 app.Run();

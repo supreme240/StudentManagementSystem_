@@ -10,13 +10,6 @@ namespace Student_management_system.Controllers
 {
     public class HomeController : Controller
     { 
-        private readonly IStudentService _studentInterface;
-
-        public HomeController(IStudentService studentInterface)
-        {
-            _studentInterface = studentInterface;
-        }
-
         [Authorize(Roles = "Student")]
         public IActionResult Index()
         {
@@ -49,13 +42,6 @@ namespace Student_management_system.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-        public IActionResult Student()
-        {
-            var data = _studentInterface.GetStudentInformation();
-
-
-            return View(data);
         }
     }
 }

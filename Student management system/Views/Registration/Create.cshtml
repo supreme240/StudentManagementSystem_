@@ -74,8 +74,12 @@
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label">Role</label>
-                            <input asp-for="Role" class="form-control" required />
+                            <label asp-for="Role" class="form-label"></label>
+
+                            <select asp-for="Role" asp-items="ViewBag.Roles" class="form-select">
+                                <option value="">-- Select Role --</option>
+                            </select>
+
                             <span asp-validation-for="Role" class="text-danger"></span>
                         </div>
 

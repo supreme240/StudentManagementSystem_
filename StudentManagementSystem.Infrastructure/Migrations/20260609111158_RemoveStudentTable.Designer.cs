@@ -12,8 +12,8 @@ using StudentManagementSystem.Infrastructure.Data;
 namespace StudentManagementSystem.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20260603083814_AddedRoleToUsers")]
-    partial class AddedRoleToUsers
+    [Migration("20260609111158_RemoveStudentTable")]
+    partial class RemoveStudentTable
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -73,7 +73,7 @@ namespace StudentManagementSystem.Infrastructure.Migrations
                     b.ToTable("Registrations");
                 });
 
-            modelBuilder.Entity("StudentManagement.domain.Domain.Student", b =>
+            modelBuilder.Entity("StudentManagement.domain.Domain.Role", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -81,16 +81,13 @@ namespace StudentManagementSystem.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("Age")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
+                    b.Property<string>("EachRole")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Students");
+                    b.ToTable("Roles");
                 });
 #pragma warning restore 612, 618
         }

@@ -10,8 +10,8 @@ namespace StudentManagementSystem.Infrastructure.Data
     public class ApplicationDbContext : DbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
-        public DbSet<Student> Students { get; set; } = null!;
         public DbSet<Registration> Registrations { get; set; } = null!;
+        public DbSet<Role> Roles { get; set; } = null!;
     }
 }
 

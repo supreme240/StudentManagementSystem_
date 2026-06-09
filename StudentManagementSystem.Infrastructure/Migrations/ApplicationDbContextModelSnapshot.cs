@@ -70,7 +70,7 @@ namespace StudentManagementSystem.Infrastructure.Migrations
                     b.ToTable("Registrations");
                 });
 
-            modelBuilder.Entity("StudentManagement.domain.Domain.Student", b =>
+            modelBuilder.Entity("StudentManagement.domain.Domain.Role", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -78,16 +78,13 @@ namespace StudentManagementSystem.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("Age")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
+                    b.Property<string>("EachRole")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Students");
+                    b.ToTable("Roles");
                 });
 #pragma warning restore 612, 618
         }

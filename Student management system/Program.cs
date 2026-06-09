@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using StudentManagementSystem.Infrastructure.Data;
 using StudentManagementSystem.Infrastructure.Repositories.GenericRepo;
 using StudentManagementSystem.Infrastructure.Repositories.RegistrationRepo;
+using StudentManagementSystem.Infrastructure.Repositories.RolesRepo;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,10 +13,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddControllersWithViews();
-builder.Services.AddScoped<IStudentService, StudentService>();
-builder.Services.AddScoped<IStudentService, StudentService>();
 builder.Services.AddScoped<IRegistrationService, RegistrationService>();
+builder.Services.AddScoped<IRoleService, RoleService>();
 builder.Services.AddScoped<IRegistrationRepository, RegistrationRepository>();
+builder.Services.AddScoped<IRolesRepository, RolesRepository>();
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
 // Configure Distributed Memory Cache & Active Session Providers

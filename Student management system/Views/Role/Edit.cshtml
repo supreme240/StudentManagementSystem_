@@ -1,0 +1,18 @@
+﻿@model StudentManagement.domain.Domain.Role
+
+<div class="container mt-5">
+    <h2>Edit Role</h2>
+
+    <form asp-action="Edit" method="post">
+        @Html.AntiForgeryToken()
+        <input type="hidden" asp-for="Id" />
+
+        <div class="mb-3">
+            <label>Role</label>
+            <input asp-for="EachRole" class="form-control" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Update Role</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>

@@ -1,23 +1,32 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using ApplicationStudentManagement.Interfaces;
-using StudentManagement.domain.Domain;
-using Student_management_system.Models;
+﻿using ApplicationStudentManagement.Interfaces;
+using ApplicationStudentManagement.Services;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Student_management_system.Models;
+using StudentManagement.domain.Domain;
 
 namespace Student_management_system.Controllers
 {
     public class RegistrationController : Controller
     {
         private readonly IRegistrationService _registrationService;
+        private readonly IRoleService _roleService;
 
         //lazy initialization
-        public RegistrationController(IRegistrationService registrationService)
+        public RegistrationController(IRegistrationService registrationService, IRoleService roleService)
         {
             _registrationService = registrationService;
+            _roleService = roleService;
+        }
+
+        private async Task LoadRoles() { 
+            var roles = await _roleService.GetAllRolesAsync();
+            ViewBag.Roles = new SelectList(roles ?? new List<Role>(), "EachRole", "EachRole");
         }
 
         // GET: Registration/Index
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public async Task<IActionResult> Index()
         {
             var registrations = await _registrationService.GetAllRegistrationsAsync();
@@ -35,8 +44,9 @@ namespace Student_management_system.Controllers
         }
 
         // GET: Registration/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
+            await LoadRoles();
             return View();
         }
 
@@ -47,6 +57,7 @@ namespace Student_management_system.Controllers
         {
             if (registrationViewModel.Password != registrationViewModel.ConfirmPassword) {
                 ModelState.AddModelError("ConfirmPassword", "Password doesn't match!");
+                await LoadRoles();
                 return View(registrationViewModel);
             }
             if (ModelState.IsValid)
@@ -67,6 +78,7 @@ namespace Student_management_system.Controllers
                 TempData["SuccessMessage"] = "Registrtaion Successfull!";
                 return RedirectToAction("Index","Login");
             }
+            await LoadRoles();
             return View(registrationViewModel);
         }
 

@@ -6,7 +6,7 @@ namespace ApplicationStudentManagement.Interfaces
 {
     public interface IForgotPassword
     {
-        int? ValidateUser(string email, long phoneNumber);
-        bool ResetPassword(int userId, string newPassword);
+        Task<int?> ValidateUserAsync(string email, long phoneNumber);
+        Task<bool> ResetPasswordAsync(int userId, string newPassword);
     }
 }

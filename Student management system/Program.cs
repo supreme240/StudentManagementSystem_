@@ -3,6 +3,7 @@ using ApplicationStudentManagement.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using StudentManagement.domain.Domain;
 using StudentManagementSystem.Infrastructure.Data;
 using StudentManagementSystem.Infrastructure.Repositories;
 using StudentManagementSystem.Infrastructure.Repository;
@@ -12,7 +13,11 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews()
+    .AddApplicationPart(typeof(Student_management_system.Controllers.StudentController).Assembly)
+    .AddApplicationPart(typeof(StudentManagementSystem.Controllers.AccountController).Assembly);
+
+
 builder.Services.AddScoped<IStudentInterface, StudentService>();
 builder.Services.AddScoped<IStudentInterface, NewStudentService>();
 builder.Services.AddScoped<IStudentChild, ChildStudentService>();
@@ -21,6 +26,8 @@ builder.Services.AddScoped<IRegistrationRepository, RegistrationRepository>();
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 builder.Services.AddScoped<ILogIn, LogInService>();
 builder.Services.AddScoped<IForgotPassword, ForgotPasswordService>();
+builder.Services.AddScoped<IRolesService, RolesService>();
+
 builder.Services.AddSession();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
@@ -48,7 +55,6 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapStaticAssets();
-
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Account}/{action=LogIn}/{id?}")

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace StudentManagement.domain.Domain
@@ -9,6 +9,6 @@ namespace StudentManagement.domain.Domain
     {
         public int Id { get; set; }
 
-        public String Role {  get; set; } = string.Empty;
+        public string RoleName { get; set; }
     }
 }

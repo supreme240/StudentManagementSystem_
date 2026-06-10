@@ -1,0 +1,14 @@
+﻿@model StudentManagement.domain.Domain.Roles
+<div class="container mt-4">
+    <h2>Add Role</h2>
+    <form asp-action="Create" method="post">
+        @Html.AntiForgeryToken()
+        <div class="mb-3">
+            <label asp-for="RoleName" class="form-label">Role Name</label>
+            <input asp-for="RoleName" class="form-control" placeholder="e.g. admin or student" />
+            <span asp-validation-for="RoleName" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>

@@ -12,78 +12,72 @@ namespace StudentManagementSystem.Controllers
         private readonly ILogIn _logIn;
         private readonly IForgotPassword _forgotPassword;
 
-        public AccountController (ILogIn logIn, IForgotPassword forgotPassword)
+        public AccountController(ILogIn logIn, IForgotPassword forgotPassword)
         {
             _logIn = logIn;
             _forgotPassword = forgotPassword;
         }
 
-        // GET: /Account/Login
         [HttpGet]
         public IActionResult LogIn()
         {
             return View();
         }
 
-        // POST: /Account/Login
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> LogIn(LogIn model, string? returnUrl)
         {
             if (!ModelState.IsValid)
-                return View(model);
+                return View("LogIn", model);
 
-            var user = _logIn.ValidateUser(
-                model.UserNameOrEmail,
-                model.Password
-            );
-            var password = user.Password;
+            // ✅ Fixed: Added 'await'
+            var user = await _logIn.ValidateUserAsync(model.UserNameOrEmail, model.Password);
+
             if (user == null)
             {
-                ViewBag.ErrorMessage = "login failed";
-                return View(model);
+                ViewBag.ErrorMessage = "Invalid username/email or password.";
+                return View("LogIn", model);
             }
-            var claims = new List<Claim> {
-             new Claim(ClaimTypes.Name, user.FullName),
-             new Claim(ClaimTypes.Role, user.Role),
-             new Claim("Course", user.Course)
-             };
-            var claimsIdentity = new ClaimsIdentity(claims,
-            CookieAuthenticationDefaults.AuthenticationScheme);
-            await HttpContext.SignInAsync(
-            CookieAuthenticationDefaults.AuthenticationScheme,
-            new ClaimsPrincipal(claimsIdentity),
-            new AuthenticationProperties { IsPersistent = true });
-           
-            if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
-                return Redirect(returnUrl);
-            return user.Role == "Admin"
-            ? RedirectToAction("Index", "Student")
-            : RedirectToAction("Index", "Home");
+
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.Name, user.UserName),
+                new Claim(ClaimTypes.Role, user.Role),
+                new Claim("FullName", user.FullName),
+            };
+
+            var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+            var principal = new ClaimsPrincipal(identity);
+
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+
+            return user.Role.Equals("Admin", StringComparison.OrdinalIgnoreCase)
+                ? RedirectToAction("Index", "Student")
+                : RedirectToAction("Create", "Student");
         }
 
-        // GET: /Account/LoginFailed  ← shown when credentials are wrong
         [HttpGet]
         public IActionResult LoginFailed()
         {
             ViewBag.ErrorMessage = "Login failed. Incorrect username/email or password.";
             return View("Login", new LogIn());
         }
+
         [HttpGet]
         public IActionResult ForgotPassword()
         {
             return View(new ForgotPassword());
         }
 
-        // POST: /LogIn/ForgetPassword
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult ForgotPassword(ForgotPassword model)
+        public async Task<IActionResult> ForgotPassword(ForgotPassword model)
         {
             if (!ModelState.IsValid)
                 return View(model);
 
-            int? userId = _forgotPassword.ValidateUser(model.Email, model.PhoneNumber);
+            int? userId = await _forgotPassword.ValidateUserAsync(model.Email, model.PhoneNumber);
 
             if (userId == null)
             {
@@ -91,7 +85,7 @@ namespace StudentManagementSystem.Controllers
                 return View(model);
             }
 
-            bool success = _forgotPassword.ResetPassword(userId.Value, model.Password);
+            bool success = await _forgotPassword.ResetPasswordAsync(userId.Value, model.Password);
 
             if (!success)
             {
@@ -102,17 +96,24 @@ namespace StudentManagementSystem.Controllers
             return RedirectToAction("ForgotPasswordSuccess");
         }
 
-        // GET: /LogIn/ForgetPasswordSuccess
         [HttpGet]
         public IActionResult ForgotPasswordSuccess()
         {
             return View();
         }
-        public IActionResult Logout()
+
+        [HttpGet]
+        public IActionResult AccessDenied()
         {
-            HttpContext.Session.Clear();
-            return RedirectToAction("Login","Account"); 
+            return View();
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            HttpContext.Session.Clear();
+            return RedirectToAction("Login", "Account");
+        }
     }
 }

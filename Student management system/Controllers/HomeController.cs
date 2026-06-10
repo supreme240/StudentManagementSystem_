@@ -8,18 +8,16 @@ namespace Student_management_system.Controllers
 {
     public class HomeController : Controller
     { 
-        private readonly IStudentInterface studentInterface;
+        private readonly IStudentInterface _studentInterface;
 
         public HomeController(IStudentInterface studentInterface)
         {
-
-
-            this.studentInterface = studentInterface;
+            _studentInterface = studentInterface;
         }
         [Authorize(Roles="Student")]
         public IActionResult Index()
         {
-            var data= studentInterface.GetStudentInformation();
+            var data= _studentInterface.GetStudentInformation();
             return View(data);
         }
 
@@ -35,7 +33,7 @@ namespace Student_management_system.Controllers
         }
         public IActionResult Student()
         {
-            var data = studentInterface.GetStudentInformation();
+            var data = _studentInterface.GetStudentInformation();
 
 
             return View(data);

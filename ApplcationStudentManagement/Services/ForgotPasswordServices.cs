@@ -4,6 +4,7 @@ using StudentManagementSystem.Infrastructure.Data;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Microsoft.EntityFrameworkCore;
 
 namespace ApplicationStudentManagement.Services
 {
@@ -17,23 +18,23 @@ namespace ApplicationStudentManagement.Services
         }
 
         // Checks email + phone against Registrations table
-        public int? ValidateUser(string email, long phoneNumber)
+        public async Task<int?> ValidateUserAsync(string email, long phoneNumber)
         {
-            var user = _db.Registrations
-                          .FirstOrDefault(r => r.Email == email && r.PhoneNumber == phoneNumber);
+            var user = await _db.Registrations
+                          .FirstOrDefaultAsync(r => r.Email == email && r.PhoneNumber == phoneNumber);
 
-            return user != null ? (int?)user.Id : null;
+            return user?.Id;
         }
 
         //saves the new password
-        public bool ResetPassword(int userId, string newPassword)
+        public async Task<bool> ResetPasswordAsync(int userId, string newPassword)
         {
-            var user = _db.Registrations.Find(userId);
+            var user = await _db.Registrations.FindAsync(userId);
             if (user == null)
                 return false;
 
             user.Password = newPassword;
-            _db.SaveChanges();
+            await _db.SaveChangesAsync();
             return true;
         }
     }

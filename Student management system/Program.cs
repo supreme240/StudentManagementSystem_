@@ -3,6 +3,8 @@ using ApplicationStudentManagement.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using StudentManagement.domain.Domain;
+using StudentManagementSystem.Infrastructure.DapperRepositories;
 using StudentManagementSystem.Infrastructure.Data;
 using StudentManagementSystem.Infrastructure.Repositories;
 using StudentManagementSystem.Infrastructure.Repository;
@@ -26,6 +28,13 @@ builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepositor
 builder.Services.AddScoped<ILogIn, LogInService>();
 builder.Services.AddScoped<IForgotPassword, ForgotPasswordService>();
 builder.Services.AddScoped<IRolesService, RolesService>();
+// --- Dapper repository: builds its own SqlConnection from IConfiguration ---
+builder.Services.AddScoped<IDapperRegistrationRepository, DapperRegistrationRepository>();
+
+// --- Dapper service: depends on the repository interface above ---
+builder.Services.AddScoped<IDapperRegistrationService, DapperRegistrationService>();
+
+
 
 builder.Services.AddSession();
 builder.Services.AddHttpContextAccessor();

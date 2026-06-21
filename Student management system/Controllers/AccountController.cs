@@ -31,7 +31,7 @@ namespace StudentManagementSystem.Controllers
             if (!ModelState.IsValid)
                 return View("LogIn", model);
 
-            // ✅ Fixed: Added 'await'
+            // Added 'await'
             var user = await _logIn.ValidateUserAsync(model.UserNameOrEmail, model.Password);
 
             if (user == null)

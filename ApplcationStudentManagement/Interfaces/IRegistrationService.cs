@@ -4,7 +4,7 @@ namespace ApplicationStudentManagement.Interfaces
 {
     public interface IRegistrationService
     {
-        Task AddRegistrationAsync(Registration registration);
+        Task<(bool success, string error)> AddRegistrationAsync(Registration registration);
         Task<List<Registration>> GetAllRegistrationsAsync();
 
         Task<Registration?> GetRegistrationByIdAsync(int id);

@@ -17,13 +17,22 @@ namespace ApplicationStudentManagement.Services
             _repository = repository;
         }
 
-        public async Task AddRegistrationAsync(Registration registration)
+        public async Task<(bool success, string error)> AddRegistrationAsync(Registration registration)
         {
-            if (registration == null)
-                throw new ArgumentNullException(nameof(registration));
+            try
+            {
+                if (registration == null)
+                    throw new ArgumentNullException(nameof(registration));
 
-            await _repository.AddAsync(registration);
-            await _repository.SaveChangesAsync();
+                await _repository.AddAsync(registration);
+                await _repository.SaveChangesAsync();
+
+                return (true, null);
+            }
+            catch (Exception ex)
+            {
+                return (false, ex.Message);
+            }
         }
 
         public async Task<List<Registration>> GetAllRegistrationsAsync()

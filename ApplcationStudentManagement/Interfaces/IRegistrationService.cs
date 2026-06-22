@@ -1,19 +1,20 @@
-﻿using StudentManagement.domain.Domain;
+﻿using ApplicationStudentManagement.DTO;
 
 namespace ApplicationStudentManagement.Interfaces
 {
     public interface IRegistrationService
     {
-        Task<(bool success, string? error)> AddRegistrationAsync(Registration registration);  //
-        Task<List<Registration>> GetAllRegistrationsAsync();
-        Task<Registration?> GetRegistrationByIdAsync(int id);
-        Task UpdateRegistrationAsync(Registration registration);
-        Task DeleteRegistrationAsync(int id);
+        // CREATE
+        Task<(bool success, string? error)> AddRegistrationAsync(RegistrationViewModel viewModel);
 
-        // Legacy methods
-        Registration GetRegistrationInformation();
-        List<Registration> GetAllRegistrations();
-        Task<string?> GetALLRegistrationsInformationAsync();
-        void AddRegistration(Registration registration);
+        // READ
+        Task<List<RegistrationViewModel>> GetAllRegistrationsAsync();
+        Task<RegistrationViewModel?> GetRegistrationByIdAsync(int id);
+
+        // UPDATE
+        Task<(bool success, string? error)> UpdateRegistrationAsync(RegistrationViewModel viewModel);
+
+        // DELETE
+        Task DeleteRegistrationAsync(int id);
     }
 }

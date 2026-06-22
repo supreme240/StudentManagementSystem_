@@ -1,93 +1,87 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿// ============================================================
+// WHAT IS THIS FILE?
+// The controller receives HTTP requests and sends back responses.
+//
+// KEY POINT FOR THIS FILE:
+// There is NO "using StudentManagement.domain.Domain" here.
+// The controller has absolutely no knowledge of the Registration
+// domain model. It only knows about RegistrationViewModel (DTO).
+//
+// The flow for every action is:
+//   GET  actions: call service → get DTO → pass to View
+//   POST actions: receive DTO from form → call service → redirect or show errors
+// ============================================================
+
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using ApplicationStudentManagement.Interfaces;
-using StudentManagement.domain.Domain;
+using ApplicationStudentManagement.Interfaces;  // service interface
+using ApplicationStudentManagement.DTO;         // only the DTO — NO domain model
 
 namespace Student_management_system.Controllers
 {
     [Authorize]
     public class StudentController : Controller
     {
+        // _registrationService  → handles all student CRUD via DTO
+        // _rolesService         → provides the roles dropdown list
         private readonly IRegistrationService _registrationService;
         private readonly IRolesService _rolesService;
 
-        // CHANGED: Added Dapper service for read operations (Index, Details)
-        // Reads are now handled by Dapper (raw SQL) instead of EF Core
-        private readonly IDapperRegistrationService _dapperRegistrationService;
-
-        // CHANGED: Constructor now accepts IDapperRegistrationService as a third parameter
-        // IRegistrationService and IRolesService are unchanged
+        // Constructor: ASP.NET automatically provides these services
         public StudentController(
-            IRegistrationService registrationService,   // unchanged — handles Create, Edit, Delete
-            IRolesService rolesService,                 // unchanged — handles role dropdown
-            IDapperRegistrationService dapperRegistrationService) // handles Index, Details
+            IRegistrationService registrationService,
+            IRolesService rolesService)
         {
             _registrationService = registrationService;
             _rolesService = rolesService;
-            _dapperRegistrationService = dapperRegistrationService;
         }
 
-        // ------------------------------------------------------------------
-        // GET: Student/Index — Admin only
-        // ------------------------------------------------------------------
-        // WORKFLOW:
-        // 1. try: ask the Dapper service for every registration row.
-        // 2. catch: if the database/connection throws, instead of letting
-        //    the page crash with a raw 500 error, store a friendly message
-        //    in TempData and show the shared Error view.
-        // 3. finally: runs whether step 1 succeeded or step 2 caught an
-        //    error — used here to guarantee ViewBag.Title is always set
-        //    so the layout never renders with a blank page title.
+        // ============================================================
+        // INDEX — show all registrations (Admin only)
+        // ============================================================
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Index()
         {
             try
             {
-                var registrations = await _dapperRegistrationService.GetAllAsync();
-                return View(registrations);
+                // Service returns List<RegistrationViewModel>
+                // No domain model involved here at all
+                var viewModels = await _registrationService.GetAllRegistrationsAsync();
+                return View(viewModels);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 TempData["Error"] = "Unable to load the student list. Please try again later.";
                 return View("Error");
             }
             finally
             {
+                // finally always runs — guarantees the page title is set
                 ViewBag.Title = "Student Registrations";
             }
         }
 
-        // ------------------------------------------------------------------
-        // GET: Student/Details/5 — Admin only
-        // ------------------------------------------------------------------
-        // WORKFLOW:
-        // 1. try: fetch a single registration by id from the Dapper service.
-        // 2. If it doesn't exist, explicitly THROW a KeyNotFoundException
-        //    instead of just returning null — this makes "not found" a real,
-        //    catchable exception instead of a silent edge case.
-        // 3. catch (KeyNotFoundException): translates that specific
-        //    exception into an HTTP 404 response.
-        // 4. catch (Exception): catches anything else (DB/connection errors)
-        //    and handles it separately from the "not found" case.
-        // 5. finally: always sets the page title regardless of outcome.
+        // ============================================================
+        // DETAILS — show one registration (Admin only)
+        // ============================================================
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Details(int id)
         {
             try
             {
-                var registration = await _dapperRegistrationService.GetByIdAsync(id);
+                // Service returns RegistrationViewModel? (null if not found)
+                var viewModel = await _registrationService.GetRegistrationByIdAsync(id);
 
-                if (registration == null)
-                {
-                    // Explicitly throw instead of silently returning NotFound()
-                    throw new KeyNotFoundException($"Registration with id {id} was not found.");
-                }
+                // If null, throw so the catch block returns a clean 404
+                if (viewModel == null)
+                    throw new KeyNotFoundException($"No registration found with id {id}.");
 
-                return View(registration);
+                return View(viewModel);
             }
             catch (KeyNotFoundException)
             {
+                // Clean 404 page — not a crash
                 return NotFound();
             }
             catch (Exception)
@@ -101,128 +95,78 @@ namespace Student_management_system.Controllers
             }
         }
 
-        // ------------------------------------------------------------------
-        // GET: Student/Create — Admin & Student
-        // ------------------------------------------------------------------
-        // WORKFLOW:
-        // 1. try: load roles for the dropdown and render the empty Create form.
-        // 2. catch: if the roles service fails, still render a usable form
-        //    (with an empty dropdown) rather than blocking the page entirely.
-        // 3. finally: ensures ViewBag.Roles always has a value, even on the
-        //    success path, by being the single place that assigns it last.
+        // ============================================================
+        // GET CREATE — show the empty registration form
+        // ============================================================
         [Authorize(Roles = "Admin,Student")]
         public async Task<IActionResult> Create()
         {
-            List<string> roleNames = new();
+            // Load the roles dropdown before showing the form
+            await LoadRolesIntoViewBag();
 
-            try
-            {
-                var roles = await _rolesService.GetAllRolesAsync();
-                roleNames = roles.Select(r => r.RoleName).ToList();
-            }
-            catch (Exception)
-            {
-                TempData["Error"] = "Unable to load the registration form right now. Please try again later.";
-            }
-            finally
-            {
-                ViewBag.Roles = new SelectList(roleNames);
-            }
-
-            return View();
+            // Pass an empty DTO to the view so asp-for tag helpers work
+            return View(new RegistrationViewModel());
         }
 
-        // ------------------------------------------------------------------
-        // POST: Student/Create — Admin & Student
-        // ------------------------------------------------------------------
-        // WORKFLOW:
-        // 1. try: if the model is valid, attempt to add the registration
-        //    through the EF Core write service.
-        // 2. If the service reports failure (success == false), THROW an
-        //    InvalidOperationException carrying the service's error message
-        //    — this turns a "soft" failure into a real exception so it flows
-        //    through the same catch path as everything else.
-        // 3. catch (InvalidOperationException): handles the "soft" failure
-        //    from step 2 and shows the specific error back to the user.
-        // 4. catch (Exception): handles anything unexpected (DB down, etc.)
-        //    and shows a generic error instead of crashing.
-        // 5. finally: always reloads the roles dropdown so the view never
-        //    renders without it, whether we returned early, succeeded, or failed.
+        // ============================================================
+        // POST CREATE — receive the filled form and save it
+        // ============================================================
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin,Student")]
-        public async Task<IActionResult> Create(Registration registration)
+        public async Task<IActionResult> Create(RegistrationViewModel viewModel)
         {
+            // If validation annotations on RegistrationViewModel fail
+            // (e.g. Required, EmailAddress) return the form with errors shown
+            if (!ModelState.IsValid)
+            {
+                await LoadRolesIntoViewBag();
+                return View(viewModel);
+            }
+
             try
             {
-                if (!ModelState.IsValid)
-                {
-                    return View(registration);
-                }
-
-                var (success, error) = await _registrationService.AddRegistrationAsync(registration);
+                // Pass the DTO straight to the service — no conversion here
+                var (success, error) = await _registrationService.AddRegistrationAsync(viewModel);
 
                 if (!success)
                 {
-                    // Convert the service-level failure into a thrown exception
-                    throw new InvalidOperationException(error ?? "Registration could not be completed.");
+                    // Service returned a business rule failure (e.g. duplicate email)
+                    // Show the error message on the form
+                    TempData["Error"] = error;
+                    return View(viewModel);
                 }
 
                 TempData["SuccessMessage"] = "Registration successful!";
-                return RedirectToAction("Create");
-            }
-            catch (InvalidOperationException ex)
-            {
-                TempData["Error"] = ex.Message;
-                return View(registration);
+                return RedirectToAction(nameof(Create));
             }
             catch (Exception)
             {
-                TempData["Error"] = "An unexpected error occurred while submitting your registration.";
-                return View(registration);
+                TempData["Error"] = "An unexpected error occurred. Please try again.";
+                return View(viewModel);
             }
             finally
             {
-                // Runs no matter which return path above was taken, ensuring
-                // ViewBag.Roles is always populated before the view renders.
-                try
-                {
-                    var roles = await _rolesService.GetAllRolesAsync();
-                    ViewBag.Roles = new SelectList(roles, "RoleName", "RoleName");
-                }
-                catch (Exception)
-                {
-                    // A failure here shouldn't override the original result,
-                    // so it's swallowed rather than thrown again.
-                    ViewBag.Roles = new SelectList(Enumerable.Empty<string>());
-                }
+                // Reload the roles dropdown so the form always has it
+                await LoadRolesIntoViewBag();
             }
         }
 
-        // ------------------------------------------------------------------
-        // GET: Student/Edit/5 — Admin only
-        // ------------------------------------------------------------------
-        // WORKFLOW:
-        // 1. try: fetch the existing registration via EF Core.
-        // 2. If not found, THROW a KeyNotFoundException (same pattern as Details()).
-        // 3. catch (KeyNotFoundException): returns 404.
-        // 4. catch (Exception): handles any other failure (DB, roles service, etc.).
-        // 5. finally: sets the page title regardless of outcome.
+        // ============================================================
+        // GET EDIT — load existing data into the edit form
+        // ============================================================
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int id)
         {
             try
             {
-                var registration = await _registrationService.GetRegistrationByIdAsync(id);
+                // Service returns the existing record as a DTO
+                var viewModel = await _registrationService.GetRegistrationByIdAsync(id);
 
-                if (registration == null)
-                {
-                    throw new KeyNotFoundException($"Registration with id {id} was not found.");
-                }
+                if (viewModel == null)
+                    throw new KeyNotFoundException($"No registration found with id {id}.");
 
-                var roles = await _rolesService.GetAllRolesAsync();
-                ViewBag.Roles = new SelectList(roles, "Role", "Role", registration.Role);
-                return View(registration);
+                return View(viewModel);
             }
             catch (KeyNotFoundException)
             {
@@ -236,63 +180,52 @@ namespace Student_management_system.Controllers
             finally
             {
                 ViewBag.Title = "Edit Registration";
+                await LoadRolesIntoViewBag();
             }
         }
 
-        // ------------------------------------------------------------------
-        // POST: Student/Edit — Admin only
-        // ------------------------------------------------------------------
-        // WORKFLOW:
-        // 1. try: if the model is valid, update the registration via EF Core.
-        // 2. catch: any DB/concurrency/unexpected failure is shown to the
-        //    user, and the form is re-rendered instead of crashing.
-        // 3. finally: always reloads the roles dropdown so the view is safe
-        //    to render on every code path (success, validation failure, or error).
+        // ============================================================
+        // POST EDIT — receive updated form and save changes
+        // ============================================================
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Edit(Registration registration)
+        public async Task<IActionResult> Edit(RegistrationViewModel viewModel)
         {
+            if (!ModelState.IsValid)
+            {
+                await LoadRolesIntoViewBag();
+                return View(viewModel);
+            }
+
             try
             {
-                if (!ModelState.IsValid)
+                // Pass the updated DTO to the service
+                var (success, error) = await _registrationService.UpdateRegistrationAsync(viewModel);
+
+                if (!success)
                 {
-                    return View(registration);
+                    TempData["Error"] = error;
+                    return View(viewModel);
                 }
 
-                await _registrationService.UpdateRegistrationAsync(registration);
                 TempData["Success"] = "Registration updated successfully!";
                 return RedirectToAction(nameof(Index));
             }
             catch (Exception)
             {
-                TempData["Error"] = "An unexpected error occurred while updating this registration.";
-                return View(registration);
+                TempData["Error"] = "An unexpected error occurred while updating. Please try again.";
+                return View(viewModel);
             }
             finally
             {
-                try
-                {
-                    var roles = await _rolesService.GetAllRolesAsync();
-                    ViewBag.Roles = new SelectList(roles, "Role", "Role", registration?.Role);
-                }
-                catch (Exception)
-                {
-                    ViewBag.Roles = new SelectList(Enumerable.Empty<string>());
-                }
+                await LoadRolesIntoViewBag();
             }
         }
 
-        // ------------------------------------------------------------------
-        // POST: Student/Delete — Admin only
-        // ------------------------------------------------------------------
-        // WORKFLOW:
-        // 1. try: delete the registration via EF Core.
-        // 2. catch: catches any failure (e.g. record already deleted, FK
-        //    constraint, DB unavailable) and informs the user via TempData
-        //    instead of letting an unhandled exception bubble up as a 500 error.
-        // 3. finally: always redirects back to Index, success or not — this
-        //    keeps the post-action navigation consistent regardless of outcome.
+        // ============================================================
+        // POST DELETE — remove a registration
+        // ============================================================
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
@@ -307,13 +240,28 @@ namespace Student_management_system.Controllers
             {
                 TempData["Error"] = "Unable to delete this registration. Please try again later.";
             }
-            finally
-            {
-                // No-op cleanup placeholder; kept to show the delete attempt
-                // always reaches a defined completion point before redirecting.
-            }
 
+            // Always go back to the list whether it succeeded or failed
             return RedirectToAction(nameof(Index));
+        }
+
+        // ============================================================
+        // PRIVATE HELPER — reused by Create and Edit actions
+        // Loads roles into ViewBag so the dropdown always works
+        // ============================================================
+        private async Task LoadRolesIntoViewBag()
+        {
+            try
+            {
+                var roles = await _rolesService.GetAllRolesAsync();
+                ViewBag.Roles = new SelectList(roles, "RoleName", "RoleName");
+            }
+            catch (Exception)
+            {
+                // If roles fail to load, give an empty dropdown
+                // rather than crashing the whole page
+                ViewBag.Roles = new SelectList(Enumerable.Empty<string>());
+            }
         }
     }
 }

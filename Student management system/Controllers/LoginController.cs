@@ -1,4 +1,5 @@
-﻿using ApplicationStudentManagement.Interfaces;
+﻿using ApplicationStudentManagement.DTOs;
+using ApplicationStudentManagement.Interfaces;
 using ApplicationStudentManagement.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -6,7 +7,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Internal;
 using Microsoft.IdentityModel.Tokens;
-using Student_management_system.Models;
 using StudentManagementSystem.Infrastructure.Repositories.RegistrationRepo;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -86,14 +86,7 @@ namespace Student_management_system.Controllers {
 
         [HttpPost]
         public async Task<IActionResult> ResetPassword(ForgotPasswordViewModel model) {
-            var user = await _registrationService.GetRegistrationByIdAsync(model.UserId); 
-
-            if (user == null)
-                return NotFound();
-
-            user.Password = model.NewPassword;
-
-            await _registrationService.UpdateRegistrationAsync(user);
+            await _registrationService.ResetPasswordAsync(model.UserId, model.NewPassword);
             return RedirectToAction("Index");
         }
 

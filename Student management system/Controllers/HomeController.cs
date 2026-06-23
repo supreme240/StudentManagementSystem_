@@ -28,7 +28,6 @@ namespace Student_management_system.Controllers
             Response.Headers["Expires"] = "0";
 
             return RedirectToAction("Index", "Login");
-
         }
 
 

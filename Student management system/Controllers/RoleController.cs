@@ -1,4 +1,5 @@
-﻿using ApplicationStudentManagement.Interfaces;
+﻿using ApplicationStudentManagement.DTOs;
+using ApplicationStudentManagement.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -37,10 +38,10 @@ namespace Student_management_system.Controllers {
         // POST: RoleController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Role role)
+        public async Task<IActionResult> Create(RoleViewModel roleViewModel)
         {
             if (ModelState.IsValid) { 
-                await _roleService.AddRolesAsync(role);
+                await _roleService.AddRolesAsync(roleViewModel);
             }
 
             TempData["SuccessMessage"] = "Role added successfully!";
@@ -61,17 +62,17 @@ namespace Student_management_system.Controllers {
         // POST: RoleController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Role role)
+        public async Task<IActionResult> Edit(int id, RoleViewModel roleViewModel)
         {
-            if(id != role.Id) 
+            if(id != roleViewModel.Id) 
                 return BadRequest();
 
             if (ModelState.IsValid) { 
-                await _roleService.UpdateRolesAsync(role);
+                await _roleService.UpdateRolesAsync(roleViewModel);
                 TempData["Success"] = "Role updated successfully!";
                 return RedirectToAction(nameof(Index));
             }
-            return View(role);
+            return View(roleViewModel);
         }
 
         // GET: RoleController/Delete/5

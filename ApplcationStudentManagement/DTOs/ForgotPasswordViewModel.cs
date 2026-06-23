@@ -1,4 +1,4 @@
-﻿namespace Student_management_system.Models {
+﻿namespace ApplicationStudentManagement.DTOs {
     public class ForgotPasswordViewModel {
         public string Email { get; set; }
         public string Number { get; set; }

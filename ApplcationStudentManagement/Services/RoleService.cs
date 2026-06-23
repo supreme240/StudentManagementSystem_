@@ -1,4 +1,5 @@
-﻿using ApplicationStudentManagement.Interfaces;
+﻿using ApplicationStudentManagement.DTOs;
+using ApplicationStudentManagement.Interfaces;
 using StudentManagement.domain.Domain;
 using StudentManagementSystem.Infrastructure.Repositories.RolesRepo;
 using System;
@@ -15,35 +16,99 @@ namespace ApplicationStudentManagement.Services {
         {
             _rolesRepository = rolesRepository;
         }
-        public async Task AddRolesAsync(Role role)
+        public async Task AddRolesAsync(RoleViewModel roleViewModel)
         {
-            if(role == null)
-                throw new ArgumentNullException(nameof(role));
+            try
+            {
+                if (roleViewModel == null)
+                    throw new ArgumentNullException(nameof(roleViewModel));
 
-            await _rolesRepository.AddAsync(role);
-            await _rolesRepository.SaveChangesAsync();
+                var role = new Role {
+                    Id = roleViewModel.Id,
+                    EachRole = roleViewModel.EachRole
+                };
+                
+                await _rolesRepository.AddAsync(role);
+                await _rolesRepository.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("An error occured while adding roles.", ex);
+            }
         }
 
         public async Task DeleteRolesAsync(int id)
         {
-            await _rolesRepository.DeleteAsync(id);
-            await _rolesRepository.SaveChangesAsync();
+            try
+            {
+                await _rolesRepository.DeleteAsync(id);
+                await _rolesRepository.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("An error occured while deleting roles with ID {id}.", ex);
+            }
         }
 
-        public async Task<List<Role>> GetAllRolesAsync()
+        public async Task<List<RoleViewModel>> GetAllRolesAsync()
         {
-            return await _rolesRepository.GetAllAsync();
+            try
+            {
+                var role = await _rolesRepository.GetAllAsync();
+
+                if (role == null) return null;
+
+                return role.Select(r => new RoleViewModel 
+                { 
+                    Id = r.Id,
+                    EachRole = r.EachRole,
+                }).ToList();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("An error occured while fetching all roles.", ex);
+            }
         }
 
-        public async Task<Role?> GetRolesByIdAsync(int id)
+        public async Task<RoleViewModel?> GetRolesByIdAsync(int id)
         {
-            return await _rolesRepository.GetByIdAsync(id);
+            try
+            {
+                var role = await _rolesRepository.GetByIdAsync(id);
+
+                if (role == null) return null;
+
+                return new RoleViewModel
+                {
+                    Id = role.Id,
+                    EachRole = role.EachRole,
+                };
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("An error occured while fetching roles with ID {id}.", ex);
+            }
         }
 
-        public async Task UpdateRolesAsync(Role role)
+        public async Task UpdateRolesAsync(RoleViewModel roleViewModel)
         {
-            _rolesRepository.Update(role);
-            await _rolesRepository.SaveChangesAsync();
+            try
+            {
+                if (roleViewModel == null)
+                    throw new ArgumentNullException(nameof(roleViewModel));
+
+                var role = new Role {
+                    Id = roleViewModel.Id,
+                    EachRole = roleViewModel.EachRole
+                };
+                
+                _rolesRepository.Update(role);
+                await _rolesRepository.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("An error occured while updating roles.", ex);
+            }
         }
     }
 }

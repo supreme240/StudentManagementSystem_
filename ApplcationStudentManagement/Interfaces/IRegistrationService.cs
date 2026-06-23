@@ -1,19 +1,21 @@
-﻿using StudentManagement.domain.Domain;
+﻿using ApplicationStudentManagement.DTOs;
+using StudentManagement.domain.Domain;
 
 namespace ApplicationStudentManagement.Interfaces
 {
     public interface IRegistrationService
     {
-        Task AddRegistrationAsync(Registration registration);
-        Task<List<Registration>> GetAllRegistrationsAsync();
+        Task AddRegistrationAsync(RegistrationViewModel registrationViewModel);
+        Task<List<RegistrationViewModel>> GetAllRegistrationsAsync();
 
-        Task<Registration?> GetRegistrationByIdAsync(int id);
+        Task<RegistrationViewModel?> GetRegistrationByIdAsync(int id);
 
-        Task UpdateRegistrationAsync(Registration registration);
+        Task UpdateRegistrationAsync(RegistrationViewModel registrationViewModel);
 
         Task DeleteRegistrationAsync(int id);
-        Task<Registration> CheckAUthenticationAsync(string email, string password);
-        Task<Registration> FindByEmailAndPhoneAsync(string email, string phone);
-        Task<List<Registration>> GetByStudentCourseAsync(string studentCourse);
+        Task<RegistrationViewModel> CheckAUthenticationAsync(string email, string password);
+        Task<RegistrationViewModel> FindByEmailAndPhoneAsync(string email, string phone);
+        Task ResetPasswordAsync(int userId, string newPassword);
+        Task<List<RegistrationViewModel>> GetByStudentCourseAsync(string studentCourse);
     }
 }

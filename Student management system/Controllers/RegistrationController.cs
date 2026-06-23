@@ -1,4 +1,5 @@
-﻿using ApplicationStudentManagement.Interfaces;
+﻿using ApplicationStudentManagement.DTOs;
+using ApplicationStudentManagement.Interfaces;
 using ApplicationStudentManagement.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -22,7 +23,7 @@ namespace Student_management_system.Controllers
 
         private async Task LoadRoles() { 
             var roles = await _roleService.GetAllRolesAsync();
-            ViewBag.Roles = new SelectList(roles ?? new List<Role>(), "EachRole", "EachRole");
+            ViewBag.Roles = new SelectList(roles ?? new List<RoleViewModel>(), "EachRole", "EachRole");
         }
 
         // GET: Registration/Index
@@ -31,15 +32,7 @@ namespace Student_management_system.Controllers
         {
             var registrations = await _registrationService.GetAllRegistrationsAsync();
 
-            var vm = registrations.Select(r => new RegistrationViewModel {
-                Id = r.Id,
-                FullName = r.FullName,
-                Address = r.Address,
-                PhoneNumber = r.PhoneNumber,
-                Gender = r.Gender,
-                Course = r.Course,
-                DateOfBirth = r.DateOfBirth
-            });
+            var vm = new RegistrationViewModel();
             return View(vm);
         }
 
@@ -62,18 +55,7 @@ namespace Student_management_system.Controllers
             }
             if (ModelState.IsValid)
             {
-                var registration = new Registration { 
-                    FullName = registrationViewModel.FullName,
-                    Email = registrationViewModel.Email,
-                    PhoneNumber = registrationViewModel.PhoneNumber,
-                    Address = registrationViewModel.Address,
-                    DateOfBirth = registrationViewModel.DateOfBirth,
-                    Gender = registrationViewModel.Gender,
-                    Course = registrationViewModel.Course,
-                    Password = registrationViewModel.Password,
-                    Role = registrationViewModel.Role
-                };  
-                await _registrationService.AddRegistrationAsync(registration);
+                await _registrationService.AddRegistrationAsync(registrationViewModel);
 
                 TempData["SuccessMessage"] = "Registrtaion Successfull!";
                 return RedirectToAction("Index","Login");
@@ -97,18 +79,18 @@ namespace Student_management_system.Controllers
         // POST: Save Edited Data
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Registration registration)
+        public async Task<IActionResult> Edit(int id, RegistrationViewModel registrationViewModel)
         {
-            if (id != registration.Id)
+            if (id != registrationViewModel.Id)
                 return BadRequest();
 
             if (ModelState.IsValid)
             {
-                await _registrationService.UpdateRegistrationAsync(registration);
+                await _registrationService.UpdateRegistrationAsync(registrationViewModel);
                 TempData["Success"] = "Registration updated successfully!";
                 return RedirectToAction(nameof(Index));
             }
-            return View(registration);   
+            return View(registrationViewModel);   
         }
 
         [HttpGet]

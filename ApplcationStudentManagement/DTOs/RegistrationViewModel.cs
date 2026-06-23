@@ -1,4 +1,4 @@
-﻿namespace Student_management_system.Models {
+﻿namespace ApplicationStudentManagement.DTOs {
     public class RegistrationViewModel {
         public int Id { get; set; }
         public string FullName { get; set; }

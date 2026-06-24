@@ -1,12 +1,17 @@
-﻿using ApplicationStudentManagement.Interfaces;
+﻿using ApplicationStudentManagement.DTO;
+using ApplicationStudentManagement.Interfaces;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using StudentManagement.domain.Domain;
 using System.Security.Claims;
 
 namespace StudentManagementSystem.Controllers
 {
+
+
+    [AllowAnonymous]
     public class AccountController : Controller
     {
         private readonly ILogIn _logIn;
@@ -29,7 +34,7 @@ namespace StudentManagementSystem.Controllers
         // POST: /Account/LogIn — validates credentials and signs in the user
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> LogIn(LogIn model, string? returnUrl)
+        public async Task<IActionResult> LogIn(LogInViewModel model, string? returnUrl)
         {
             // Return the form with validation errors if model is invalid
             if (!ModelState.IsValid)
@@ -50,9 +55,9 @@ namespace StudentManagementSystem.Controllers
                 // Build the list of claims to store in the auth cookie
                 var claims = new List<Claim>
                 {
-                    new Claim(ClaimTypes.Name, user.UserName),       // Used for User.Identity.Name
-                    new Claim(ClaimTypes.Role, user.Role),            // Used for role-based authorization
-                    new Claim("FullName", user.FullName),             // Custom claim for display purposes
+                    new Claim(ClaimTypes.Name, user.UserName),
+                    new Claim(ClaimTypes.Role, user.Role),
+                    new Claim("FullName", user.FullName),
                 };
 
                 // Create the claims identity and principal using cookie authentication
@@ -62,19 +67,14 @@ namespace StudentManagementSystem.Controllers
                 // Sign in the user — this sets the auth cookie in the browser
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
 
-                // Redirect based on role:
-                // Admin → Student list (Index)
-                // Student → Registration form (Create)
+                // Redirect based on role
                 return user.Role.Equals("Admin", StringComparison.OrdinalIgnoreCase)
                     ? RedirectToAction("Index", "Student")
                     : RedirectToAction("Create", "Student");
             }
             catch (Exception ex)
             {
-                // Log the exception (replace with your logger if available e.g. _logger.LogError)
                 Console.WriteLine($"[LogIn Error] {ex.Message}");
-
-                // Show a generic error to the user — avoid exposing internal details
                 ViewBag.ErrorMessage = "An unexpected error occurred during login. Please try again.";
                 return View("LogIn", model);
             }
@@ -85,7 +85,7 @@ namespace StudentManagementSystem.Controllers
         public IActionResult LoginFailed()
         {
             ViewBag.ErrorMessage = "Login failed. Incorrect username/email or password.";
-            return View("Login", new LogIn());
+            return View("LogIn", new LogInViewModel());
         }
 
         // GET: /Account/ForgotPassword — renders the forgot password form
@@ -119,35 +119,32 @@ namespace StudentManagementSystem.Controllers
                 // Step 2: Attempt to reset the password for the matched user
                 bool success = await _forgotPassword.ResetPasswordAsync(userId.Value, model.Password);
 
-                // If the reset failed (e.g. DB error), notify the user
+                // If the reset failed notify the user
                 if (!success)
                 {
                     ViewBag.ErrorMessage = "Something went wrong. Please try again.";
                     return View(model);
                 }
 
-                // Password reset succeeded — redirect to the success confirmation page
+                // Password reset succeeded — redirect to success page
                 return RedirectToAction("ForgotPasswordSuccess");
             }
             catch (Exception ex)
             {
-                // Log the exception for debugging
                 Console.WriteLine($"[ForgotPassword Error] {ex.Message}");
-
-                // Show a safe generic error message to the user
                 ViewBag.ErrorMessage = "An unexpected error occurred. Please try again later.";
                 return View(model);
             }
         }
 
-        // GET: /Account/ForgotPasswordSuccess — confirmation page after a successful password reset
+        // GET: /Account/ForgotPasswordSuccess
         [HttpGet]
         public IActionResult ForgotPasswordSuccess()
         {
             return View();
         }
 
-        // GET: /Account/AccessDenied — shown when a user tries to access a page they don't have permission for
+        // GET: /Account/AccessDenied
         [HttpGet]
         public IActionResult AccessDenied()
         {
@@ -160,20 +157,21 @@ namespace StudentManagementSystem.Controllers
         {
             try
             {
-                // Remove the auth cookie — this ends the authenticated session
+                // Remove the auth cookie
                 await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
 
-                // Clear any server-side session data (e.g. temp data stored in session)
+                // Clear session data
                 HttpContext.Session.Clear();
             }
             catch (Exception ex)
             {
-                // Log the error but still redirect — don't leave the user stuck on the page
                 Console.WriteLine($"[Logout Error] {ex.Message}");
             }
 
-            // Always redirect to login page after logout, even if an error occurred
-            return RedirectToAction("Login", "Account");
+            // Fixed — LogIn not Login
+            return RedirectToAction("LogIn", "Account");
         }
+
+
     }
 }

@@ -1,4 +1,4 @@
-﻿@model StudentManagement.domain.Domain.LogIn
+﻿@model ApplicationStudentManagement.DTO.LogInViewModel
 @{
     ViewData["Title"] = "Login";
     Layout = null;
@@ -27,18 +27,6 @@
                 border-radius: 16px;
                 padding: 36px 32px;
                 box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-            }
-
-            .brand-icon {
-                width: 52px;
-                height: 52px;
-                background: #e8c97e;
-                border-radius: 12px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 26px;
-                margin: 0 auto 14px;
             }
 
             .form-label {
@@ -92,8 +80,6 @@
 </head>
 <body>
 
-    
-        
     <div class="login-card text-center">
 
         <!-- Brand -->
@@ -103,8 +89,8 @@
             <p class="text-muted small mb-4">Log In</p>
         </div>
 
-       
-        <form asp-controller="Account" asp-action="Login" method="post" class="text-start">
+        <!-- Login Form -->
+        <form asp-controller="Account" asp-action="LogIn" method="post" class="text-start">
             @Html.AntiForgeryToken()
 
             <!-- Username or Email -->
@@ -129,7 +115,6 @@
                            id="passwordInput"
                            class="form-control"
                            placeholder="Enter password" />
-
                 </div>
                 <span asp-validation-for="Password"
                       class="text-danger small"></span>
@@ -138,7 +123,7 @@
             <!-- Login Button -->
             <button type="submit" class="btn-login">Login</button>
 
-            <!-- Error Message below button -->
+            <!-- Error Message -->
             @if (ViewBag.ErrorMessage != null)
             {
                 <div class="error-alert">

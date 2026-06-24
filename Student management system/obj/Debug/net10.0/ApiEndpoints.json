@@ -1,1 +1,18 @@
-[]
+[
+  {
+    "ContainingType": "Student_management_system.Controllers.TokenController",
+    "Method": "GenerateToken",
+    "RelativePath": "api/Token/generate",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "ApplicationStudentManagement.DTO.LogInViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

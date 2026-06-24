@@ -98,7 +98,7 @@ namespace Student_management_system.Controllers
         // ============================================================
         // GET CREATE — show the empty registration form
         // ============================================================
-        [Authorize(Roles = "Admin,Student")]
+       [Authorize(Roles = "Admin,Student")]
         public async Task<IActionResult> Create()
         {
             // Load the roles dropdown before showing the form

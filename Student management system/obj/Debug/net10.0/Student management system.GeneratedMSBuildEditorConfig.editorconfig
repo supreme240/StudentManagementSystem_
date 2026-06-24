@@ -20,97 +20,109 @@ build_property.TargetFrameworkVersion = v10.0
 build_property.EntryPointFilePath = 
 build_property.RootNamespace = Student_management_system
 build_property.RootNamespace = Student_management_system
-build_property.ProjectDir = C:\Student management system\Student management system\
+build_property.ProjectDir = C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 10.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Student management system\Student management system
+build_property.MSBuildProjectDirectory = C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 10.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Student management system/Student management system/Pages/Error.cshtml]
+[C:/Users/Suyog/source/repos/StudentManagementSystem_/Student management system/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Student management system/Student management system/Pages/Index.cshtml]
+[C:/Users/Suyog/source/repos/StudentManagementSystem_/Student management system/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Student management system/Student management system/Pages/Privacy.cshtml]
+[C:/Users/Suyog/source/repos/StudentManagementSystem_/Student management system/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Student management system/Student management system/Pages/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Suyog/source/repos/StudentManagementSystem_/Student management system/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Student management system/Student management system/Pages/_ViewImports.cshtml]
+[C:/Users/Suyog/source/repos/StudentManagementSystem_/Student management system/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Student management system/Student management system/Pages/_ViewStart.cshtml]
+[C:/Users/Suyog/source/repos/StudentManagementSystem_/Student management system/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Student management system/Student management system/Views/Account/ForgotPassword.cshtml]
+[C:/Users/Suyog/source/repos/StudentManagementSystem_/Student management system/Views/Account/ForgotPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxGb3Jnb3RQYXNzd29yZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Student management system/Student management system/Views/Account/ForgotPasswordSuccess.cshtml]
+[C:/Users/Suyog/source/repos/StudentManagementSystem_/Student management system/Views/Account/ForgotPasswordSuccess.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxGb3Jnb3RQYXNzd29yZFN1Y2Nlc3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Student management system/Student management system/Views/Account/Login.cshtml]
+[C:/Users/Suyog/source/repos/StudentManagementSystem_/Student management system/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Student management system/Student management system/Views/Home/Index.cshtml]
+[C:/Users/Suyog/source/repos/StudentManagementSystem_/Student management system/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Student management system/Student management system/Views/Home/Privacy.cshtml]
+[C:/Users/Suyog/source/repos/StudentManagementSystem_/Student management system/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Student management system/Student management system/Views/Home/Student.cshtml]
+[C:/Users/Suyog/source/repos/StudentManagementSystem_/Student management system/Views/Home/Student.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTdHVkZW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Student management system/Student management system/Views/Shared/Error.cshtml]
+[C:/Users/Suyog/source/repos/StudentManagementSystem_/Student management system/Views/Roles/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Suyog/source/repos/StudentManagementSystem_/Student management system/Views/Roles/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Suyog/source/repos/StudentManagementSystem_/Student management system/Views/Roles/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Suyog/source/repos/StudentManagementSystem_/Student management system/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Student management system/Student management system/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Suyog/source/repos/StudentManagementSystem_/Student management system/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Student management system/Student management system/Views/Student/Create.cshtml]
+[C:/Users/Suyog/source/repos/StudentManagementSystem_/Student management system/Views/Student/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Student management system/Student management system/Views/Student/Edit.cshtml]
+[C:/Users/Suyog/source/repos/StudentManagementSystem_/Student management system/Views/Student/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Student management system/Student management system/Views/Student/Index.cshtml]
+[C:/Users/Suyog/source/repos/StudentManagementSystem_/Student management system/Views/Student/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Student management system/Student management system/Views/_ViewImports.cshtml]
+[C:/Users/Suyog/source/repos/StudentManagementSystem_/Student management system/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Student management system/Student management system/Views/_ViewStart.cshtml]
+[C:/Users/Suyog/source/repos/StudentManagementSystem_/Student management system/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Student management system/Student management system/Pages/Shared/_Layout.cshtml]
+[C:/Users/Suyog/source/repos/StudentManagementSystem_/Student management system/Pages/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-czddnvz8sp
 
-[C:/Student management system/Student management system/Views/Shared/_Layout.cshtml]
+[C:/Users/Suyog/source/repos/StudentManagementSystem_/Student management system/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-gbj192jjtu

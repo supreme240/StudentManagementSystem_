@@ -465,3 +465,239 @@ C:\Student management system\Student management system\obj\Debug\net10.0\refint\
 C:\Student management system\Student management system\obj\Debug\net10.0\Student management system.pdb
 C:\Student management system\Student management system\obj\Debug\net10.0\Student management system.genruntimeconfig.cache
 C:\Student management system\Student management system\obj\Debug\net10.0\ref\Student management system.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\Student management system.csproj.AssemblyReference.cache
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\rpswa.dswa.cache.json
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\Student management system.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\Student management system.AssemblyInfoInputs.cache
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\Student management system.AssemblyInfo.cs
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\Student management system.csproj.CoreCompileInputs.cache
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\Student management system.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\Student management system.RazorAssemblyInfo.cache
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\Student management system.RazorAssemblyInfo.cs
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\Student management system.sourcelink.json
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\Student management system.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\refint\Student management system.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\Student management system.pdb
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\appsettings.Development.json
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\appsettings.json
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\dotnet-tools.json
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\Student management system.staticwebassets.runtime.json
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\Student management system.staticwebassets.endpoints.json
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\Student management system.exe
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\Student management system.deps.json
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\Student management system.runtimeconfig.json
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\Student management system.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\Student management system.pdb
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\Azure.Core.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\Azure.Identity.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\Dapper.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\Humanizer.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\Microsoft.Bcl.Cryptography.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\Microsoft.Build.Framework.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\Microsoft.CodeAnalysis.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\Microsoft.CodeAnalysis.Workspaces.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\Microsoft.CodeAnalysis.ExternalAccess.RazorCompiler.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\Microsoft.Data.SqlClient.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\Microsoft.Identity.Client.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\Microsoft.SqlServer.Server.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\Microsoft.VisualStudio.SolutionPersistence.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\Mono.TextTemplating.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\Newtonsoft.Json.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\System.ClientModel.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\System.CodeDom.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\System.Composition.AttributedModel.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\System.Composition.Convention.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\System.Composition.Hosting.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\System.Composition.Runtime.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\System.Composition.TypedParts.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\System.Configuration.ConfigurationManager.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\System.Memory.Data.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\cs\Microsoft.Data.SqlClient.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\de\Microsoft.Data.SqlClient.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\es\Microsoft.Data.SqlClient.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\fr\Microsoft.Data.SqlClient.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\it\Microsoft.Data.SqlClient.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\ja\Microsoft.Data.SqlClient.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\ko\Microsoft.Data.SqlClient.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\pl\Microsoft.Data.SqlClient.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\pt-BR\Microsoft.Data.SqlClient.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\ru\Microsoft.Data.SqlClient.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\tr\Microsoft.Data.SqlClient.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\runtimes\unix\lib\net9.0\Microsoft.Data.SqlClient.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\runtimes\win\lib\net9.0\Microsoft.Data.SqlClient.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\ApplicationStudentManagement.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\StudentManagement.domain.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\StudentManagementSystem.Infrastructure.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\ApplicationStudentManagement.pdb
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\StudentManagementSystem.Infrastructure.pdb
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\bin\Debug\net10.0\StudentManagement.domain.pdb
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\rjimswa.dswa.cache.json
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\scopedcss\bundle\Student management system.styles.css
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\scopedcss\projectbundle\Student management system.bundle.scp.css
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\b43axiq389-{0}-b9sayid5wm-b9sayid5wm.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\4mfkms1vxp-{0}-61n19gt1b8-61n19gt1b8.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\3m6p9yi41j-{0}-xtxxf3hu2r-xtxxf3hu2r.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\69qqx18vwf-{0}-t1cqhe9u97-t1cqhe9u97.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\0mxg5n5xr2-{0}-c2jlpeoesf-c2jlpeoesf.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\sfd3ac7g9q-{0}-sejl45xvog-sejl45xvog.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\y8igjxb92i-{0}-aexeepp0ev-aexeepp0ev.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\ogvxmqwd24-{0}-xvp3kq03qx-xvp3kq03qx.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\ym19f9ua0q-{0}-ausgxo2sd3-ausgxo2sd3.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\3hn11rlefa-{0}-22vffe00uq-22vffe00uq.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\cdzr6ywcvq-{0}-cosvhxvwiu-cosvhxvwiu.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\d1tu5fo7fe-{0}-qesaa3a1fm-qesaa3a1fm.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\imqkmvs2a0-{0}-fvhpjtyr6v-fvhpjtyr6v.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\3k0iswnhg6-{0}-tmc1g35s3z-tmc1g35s3z.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\kq9lgpke7e-{0}-fsbi9cje9m-fsbi9cje9m.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\4hdlb47vyd-{0}-rxsg74s51o-rxsg74s51o.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\a8arxjhbaw-{0}-ee0r1s7dh0-ee0r1s7dh0.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\5us7sn886w-{0}-q9ht133ko3-q9ht133ko3.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\91rigxo9pe-{0}-jd9uben2k1-jd9uben2k1.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\h0q6rjskeg-{0}-gye83jo8yx-gye83jo8yx.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\icc6dfq1x0-{0}-r4e9w2rdcm-r4e9w2rdcm.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\ejmkcw2omd-{0}-wl58j5mj3v-wl58j5mj3v.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\24eq8nd1y1-{0}-c2oey78nd0-c2oey78nd0.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\3ytzb8jgkx-{0}-d4r6k3f320-d4r6k3f320.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\o5le6vf2nq-{0}-j5mq2jizvt-j5mq2jizvt.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\ad1s6gnsxq-{0}-keugtjm085-keugtjm085.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\ifpf8n8h2p-{0}-nvvlpmu67g-nvvlpmu67g.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\5sxz3rp3r4-{0}-zub09dkrxp-zub09dkrxp.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\0lqv3tybtg-{0}-pj5nd1wqec-pj5nd1wqec.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\jxwe5nvd9w-{0}-43atpzeawx-43atpzeawx.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\modrd9zter-{0}-v0zj4ognzu-v0zj4ognzu.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\kffg20c3n0-{0}-ynyaa8k90p-ynyaa8k90p.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\4vxf92qnk8-{0}-hrwsygsryq-hrwsygsryq.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\y2gjfg321d-{0}-c63t5i9ira-c63t5i9ira.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\4evh4lcszf-{0}-ft3s53vfgj-ft3s53vfgj.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\ew5o2wrmj5-{0}-4094rpi4f9-4094rpi4f9.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\tero2dmihy-{0}-6pdc2jztkx-6pdc2jztkx.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\esvjlckgl1-{0}-hd3gran6i8-hd3gran6i8.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\ow64ry6kao-{0}-iovd86k7lj-iovd86k7lj.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\4u9wg2s2x9-{0}-ltid2c489k-ltid2c489k.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\zmqq4o3kks-{0}-kbrnm935zg-kbrnm935zg.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\atvc4ndr5k-{0}-8vyfqsqgz1-8vyfqsqgz1.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\e5serfv8bb-{0}-y7v9cxd14o-y7v9cxd14o.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\as34sdiemg-{0}-u9q1upor1n-u9q1upor1n.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\wu4c2ei850-{0}-h1s4sie4z3-h1s4sie4z3.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\z8v9kje02p-{0}-4d85u1mtcx-4d85u1mtcx.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\le28fhl8n2-{0}-0j3bgjxly4-0j3bgjxly4.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\uaoaybftab-{0}-03hjc8e09r-03hjc8e09r.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\un5lhm3ojd-{0}-48y08845bh-48y08845bh.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\wqqj8ee7r1-{0}-356vix0kms-356vix0kms.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\o7x9nqv6uc-{0}-83jwlth58m-83jwlth58m.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\o1kr8nv5dy-{0}-mrlpezrjn3-mrlpezrjn3.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\w5koqqynnl-{0}-worgj0nhwm-worgj0nhwm.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\sdrian3ima-{0}-gk0pw8i4co-gk0pw8i4co.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\zgcoq0q3qx-{0}-x0q3zqp4vz-x0q3zqp4vz.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\kjofs3gdm1-{0}-d6nrnj6jjx-d6nrnj6jjx.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\wjgmp6770k-{0}-m9qm4tazc0-m9qm4tazc0.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\atqd174380-{0}-ttgo8qnofa-ttgo8qnofa.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\pqv9qapms1-{0}-jjsuc0puko-jjsuc0puko.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\4jivdkaodh-{0}-9vr69e8ynj-9vr69e8ynj.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\c992j9q2o8-{0}-87fc7y1x7t-87fc7y1x7t.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\ircbao10i7-{0}-mlv21k5csn-mlv21k5csn.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\fnxserun1f-{0}-dplncxf6ph-dplncxf6ph.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\compressed\e05otvbh8j-{0}-dplncxf6ph-dplncxf6ph.gz
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\staticwebassets.build.json
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\staticwebassets.build.json.cache
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\staticwebassets.development.json
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\staticwebassets.build.endpoints.json
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\swae.build.ex.cache
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\Student .C11E70CF.Up2Date
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\Student management system.genruntimeconfig.cache
+C:\Users\Suyog\source\repos\StudentManagementSystem_\Student management system\obj\Debug\net10.0\ref\Student management system.dll

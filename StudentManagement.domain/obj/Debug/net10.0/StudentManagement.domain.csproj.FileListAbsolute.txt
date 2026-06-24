@@ -21,3 +21,15 @@ C:\Student management system\StudentManagement.domain\obj\Debug\net10.0\StudentM
 C:\Student management system\StudentManagement.domain\obj\Debug\net10.0\refint\StudentManagement.domain.dll
 C:\Student management system\StudentManagement.domain\obj\Debug\net10.0\StudentManagement.domain.pdb
 C:\Student management system\StudentManagement.domain\obj\Debug\net10.0\ref\StudentManagement.domain.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\StudentManagement.domain\bin\Debug\net10.0\StudentManagement.domain.deps.json
+C:\Users\Suyog\source\repos\StudentManagementSystem_\StudentManagement.domain\bin\Debug\net10.0\StudentManagement.domain.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\StudentManagement.domain\bin\Debug\net10.0\StudentManagement.domain.pdb
+C:\Users\Suyog\source\repos\StudentManagementSystem_\StudentManagement.domain\obj\Debug\net10.0\StudentManagement.domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Suyog\source\repos\StudentManagementSystem_\StudentManagement.domain\obj\Debug\net10.0\StudentManagement.domain.AssemblyInfoInputs.cache
+C:\Users\Suyog\source\repos\StudentManagementSystem_\StudentManagement.domain\obj\Debug\net10.0\StudentManagement.domain.AssemblyInfo.cs
+C:\Users\Suyog\source\repos\StudentManagementSystem_\StudentManagement.domain\obj\Debug\net10.0\StudentManagement.domain.csproj.CoreCompileInputs.cache
+C:\Users\Suyog\source\repos\StudentManagementSystem_\StudentManagement.domain\obj\Debug\net10.0\StudentManagement.domain.sourcelink.json
+C:\Users\Suyog\source\repos\StudentManagementSystem_\StudentManagement.domain\obj\Debug\net10.0\StudentManagement.domain.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\StudentManagement.domain\obj\Debug\net10.0\refint\StudentManagement.domain.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\StudentManagement.domain\obj\Debug\net10.0\StudentManagement.domain.pdb
+C:\Users\Suyog\source\repos\StudentManagementSystem_\StudentManagement.domain\obj\Debug\net10.0\ref\StudentManagement.domain.dll

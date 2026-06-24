@@ -33,3 +33,21 @@ C:\Student management system\StudentManagementSystem.Infrastructure\obj\Debug\ne
 C:\Student management system\StudentManagementSystem.Infrastructure\obj\Debug\net10.0\StudentManagementSystem.Infrastructure.pdb
 C:\Student management system\StudentManagementSystem.Infrastructure\obj\Debug\net10.0\StudentManagementSystem.Infrastructure.genruntimeconfig.cache
 C:\Student management system\StudentManagementSystem.Infrastructure\obj\Debug\net10.0\ref\StudentManagementSystem.Infrastructure.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\StudentManagementSystem.Infrastructure\bin\Debug\net10.0\StudentManagementSystem.Infrastructure.deps.json
+C:\Users\Suyog\source\repos\StudentManagementSystem_\StudentManagementSystem.Infrastructure\bin\Debug\net10.0\StudentManagementSystem.Infrastructure.runtimeconfig.json
+C:\Users\Suyog\source\repos\StudentManagementSystem_\StudentManagementSystem.Infrastructure\bin\Debug\net10.0\StudentManagementSystem.Infrastructure.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\StudentManagementSystem.Infrastructure\bin\Debug\net10.0\StudentManagementSystem.Infrastructure.pdb
+C:\Users\Suyog\source\repos\StudentManagementSystem_\StudentManagementSystem.Infrastructure\bin\Debug\net10.0\StudentManagement.domain.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\StudentManagementSystem.Infrastructure\bin\Debug\net10.0\StudentManagement.domain.pdb
+C:\Users\Suyog\source\repos\StudentManagementSystem_\StudentManagementSystem.Infrastructure\obj\Debug\net10.0\StudentManagementSystem.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\Suyog\source\repos\StudentManagementSystem_\StudentManagementSystem.Infrastructure\obj\Debug\net10.0\StudentManagementSystem.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Suyog\source\repos\StudentManagementSystem_\StudentManagementSystem.Infrastructure\obj\Debug\net10.0\StudentManagementSystem.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Suyog\source\repos\StudentManagementSystem_\StudentManagementSystem.Infrastructure\obj\Debug\net10.0\StudentManagementSystem.Infrastructure.AssemblyInfo.cs
+C:\Users\Suyog\source\repos\StudentManagementSystem_\StudentManagementSystem.Infrastructure\obj\Debug\net10.0\StudentManagementSystem.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Suyog\source\repos\StudentManagementSystem_\StudentManagementSystem.Infrastructure\obj\Debug\net10.0\StudentManagementSystem.Infrastructure.sourcelink.json
+C:\Users\Suyog\source\repos\StudentManagementSystem_\StudentManagementSystem.Infrastructure\obj\Debug\net10.0\StudentM.DB26BE34.Up2Date
+C:\Users\Suyog\source\repos\StudentManagementSystem_\StudentManagementSystem.Infrastructure\obj\Debug\net10.0\StudentManagementSystem.Infrastructure.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\StudentManagementSystem.Infrastructure\obj\Debug\net10.0\refint\StudentManagementSystem.Infrastructure.dll
+C:\Users\Suyog\source\repos\StudentManagementSystem_\StudentManagementSystem.Infrastructure\obj\Debug\net10.0\StudentManagementSystem.Infrastructure.pdb
+C:\Users\Suyog\source\repos\StudentManagementSystem_\StudentManagementSystem.Infrastructure\obj\Debug\net10.0\StudentManagementSystem.Infrastructure.genruntimeconfig.cache
+C:\Users\Suyog\source\repos\StudentManagementSystem_\StudentManagementSystem.Infrastructure\obj\Debug\net10.0\ref\StudentManagementSystem.Infrastructure.dll

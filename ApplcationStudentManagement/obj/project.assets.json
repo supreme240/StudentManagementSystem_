@@ -44,6 +44,19 @@
           }
         }
       },
+      "Dapper/2.1.79": {
+        "type": "package",
+        "compile": {
+          "lib/net10.0/Dapper.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net10.0/Dapper.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "jQuery/2.1.1": {
         "type": "package"
       },
@@ -713,6 +726,7 @@
         "framework": ".NETCoreApp,Version=v10.0",
         "dependencies": {
           "1": "1.0.0",
+          "Dapper": "2.1.79",
           "Microsoft.EntityFrameworkCore": "10.0.8",
           "Microsoft.EntityFrameworkCore.SqlServer": "10.0.8",
           "StudentManagement.domain": "1.0.0"
@@ -777,6 +791,27 @@
         "lib/net8.0/Azure.Identity.xml",
         "lib/netstandard2.0/Azure.Identity.dll",
         "lib/netstandard2.0/Azure.Identity.xml"
+      ]
+    },
+    "Dapper/2.1.79": {
+      "sha512": "8YijbzgTfmqmQOnVNorYM6K++pxqnW3nJ4aC1sRHzxUA2CcuoJ9gsTem3kgBnPRMc38zZHl4Esb6hAezXIEEuw==",
+      "type": "package",
+      "path": "dapper/2.1.79",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Dapper.png",
+        "dapper.2.1.79.nupkg.sha512",
+        "dapper.nuspec",
+        "lib/net10.0/Dapper.dll",
+        "lib/net10.0/Dapper.xml",
+        "lib/net461/Dapper.dll",
+        "lib/net461/Dapper.xml",
+        "lib/net8.0/Dapper.dll",
+        "lib/net8.0/Dapper.xml",
+        "lib/netstandard2.0/Dapper.dll",
+        "lib/netstandard2.0/Dapper.xml",
+        "readme.md"
       ]
     },
     "jQuery/2.1.1": {
@@ -1771,23 +1806,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Dell\\.nuget\\packages\\": {},
+    "C:\\Users\\Suyog\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Student management system\\ApplcationStudentManagement\\ApplicationStudentManagement.csproj",
+      "projectUniqueName": "C:\\Users\\Suyog\\source\\repos\\StudentManagementSystem_\\ApplcationStudentManagement\\ApplicationStudentManagement.csproj",
       "projectName": "ApplicationStudentManagement",
-      "projectPath": "C:\\Student management system\\ApplcationStudentManagement\\ApplicationStudentManagement.csproj",
-      "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
-      "outputPath": "C:\\Student management system\\ApplcationStudentManagement\\obj\\",
+      "projectPath": "C:\\Users\\Suyog\\source\\repos\\StudentManagementSystem_\\ApplcationStudentManagement\\ApplicationStudentManagement.csproj",
+      "packagesPath": "C:\\Users\\Suyog\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Suyog\\source\\repos\\StudentManagementSystem_\\ApplcationStudentManagement\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Suyog\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -1796,6 +1831,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1803,11 +1839,11 @@
           "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
-            "C:\\Student management system\\StudentManagement.domain\\StudentManagement.domain.csproj": {
-              "projectPath": "C:\\Student management system\\StudentManagement.domain\\StudentManagement.domain.csproj"
+            "C:\\Users\\Suyog\\source\\repos\\StudentManagementSystem_\\StudentManagement.domain\\StudentManagement.domain.csproj": {
+              "projectPath": "C:\\Users\\Suyog\\source\\repos\\StudentManagementSystem_\\StudentManagement.domain\\StudentManagement.domain.csproj"
             },
-            "C:\\Student management system\\StudentManagementSystem.Infrastructure\\StudentManagementSystem.Infrastructure.csproj": {
-              "projectPath": "C:\\Student management system\\StudentManagementSystem.Infrastructure\\StudentManagementSystem.Infrastructure.csproj"
+            "C:\\Users\\Suyog\\source\\repos\\StudentManagementSystem_\\StudentManagementSystem.Infrastructure\\StudentManagementSystem.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\Suyog\\source\\repos\\StudentManagementSystem_\\StudentManagementSystem.Infrastructure\\StudentManagementSystem.Infrastructure.csproj"
             }
           }
         }
@@ -1850,7 +1886,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.300/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.301/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.CSharp": "(,4.7.32767]",
           "Microsoft.VisualBasic": "(,10.4.32767]",

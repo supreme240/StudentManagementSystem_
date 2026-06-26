@@ -15,5 +15,10 @@ namespace ApplicationStudentManagement.DTO
         [DataType(DataType.Password)]
         public string Password { get; set; } = string.Empty;
     }
+    public class LogInAPIViewModel
+    {
+        public string UserNameOrEmail { get; set; } = string.Empty;
+        public string Password { get; set; } = string.Empty;
+    }
 }
 

@@ -10,6 +10,7 @@ using StudentManagementSystem.Infrastructure.DapperRepositories;
 using StudentManagementSystem.Infrastructure.Data;
 using StudentManagementSystem.Infrastructure.Repositories;
 using StudentManagementSystem.Infrastructure.Repository;
+using System.Security.Cryptography;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -37,37 +38,15 @@ builder.Services.AddScoped<IDapperRegistrationService, DapperRegistrationService
 
 builder.Services.AddSession();
 builder.Services.AddHttpContextAccessor();
-builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-.AddCookie(options =>
-{
-    options.LoginPath = "/Account/Login";
-    options.AccessDeniedPath = "/Account/Login";
-    options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
-});
 
-var jwtSecretKey = Encoding.ASCII.GetBytes(builder.Configuration["JwtSettings:Key"]!);
-// Your current code
-builder.Services.AddAuthentication(options =>
-{
-    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-})
-.AddJwtBearer(options =>
-{
-    options.RequireHttpsMetadata = true;
-    options.SaveToken = true;
-    options.TokenValidationParameters = new TokenValidationParameters
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, options =>
     {
-        ValidateIssuerSigningKey = true,
-        IssuerSigningKey = new SymmetricSecurityKey(jwtSecretKey),
-        ValidateIssuer = true,
-        ValidIssuer = builder.Configuration["JwtSettings:Issuer"],
-        ValidateAudience = true,
-        ValidAudience = builder.Configuration["JwtSettings:Audience"],
-        ValidateLifetime = true,
-        ClockSkew = TimeSpan.Zero
-    };
-}); 
+        options.LoginPath = "/Account/LogIn";
+        options.AccessDeniedPath = "/Account/AccessDenied";
+        options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
+    });
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

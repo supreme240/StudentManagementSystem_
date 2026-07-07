@@ -89,7 +89,7 @@ namespace Student_management_system.Controllers
             if (string.IsNullOrWhiteSpace(token))
                 return NotFound(new { message = "No token has been generated yet." });
 
-            return Ok(new { token, expiration });
+            return Ok(token);
         }
 
         private void SaveTokenToAppSettings(string bearerToken, DateTime? expiration)

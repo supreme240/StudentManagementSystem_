@@ -3,16 +3,17 @@ let bearerToken = "";
 
 // fetch stored token from GetToken API
 async function fetchBearerToken() {
-    debugger
     try {
-        var urllink = "http://localhost:7214"
+        var urllink = "http://localhost:5058"
         var api = urllink + "/api/Token/gettoken";
-        const response = await fetch(api);
+        const response = await fetch(api, {
+            method: "GET",
+        });
         if (!response.ok) throw new Error("No token available");
-
-        const result = await response.json();
-        bearerToken = result.token; // already "Bearer eyJ..."
-        console.log("Bearer token loaded.");
+        debugger
+        const result = await response.text();
+        bearerToken = result; // already "Bearer eyJ..."
+        console.log("Bearer token loaded.", bearerToken);
     } catch (err) {
         console.error("Failed to fetch bearer token:", err);
         bearerToken = "";

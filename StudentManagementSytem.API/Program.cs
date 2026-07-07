@@ -33,6 +33,18 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddOpenApi();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend", policy =>
+    {
+        policy.WithOrigins("http://localhost:5266")
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+
+        // If using cookies instead of JWT header:
+        // .AllowCredentials();
+    });
+});
 
 var jwtSecretKey = Encoding.UTF8.GetBytes(
     builder.Configuration["JwtSettings:Key"]!);
@@ -75,6 +87,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseCors("AllowFrontend");
 
 app.UseAuthentication();
 

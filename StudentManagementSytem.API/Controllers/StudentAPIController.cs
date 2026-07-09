@@ -115,7 +115,7 @@ namespace Student_management_system.Controllers
         // DELETE: api/StudentAPI/5
         [HttpDelete("{id}")]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Delete(student ctf)
+        public async Task<IActionResult> Delete(int id)
         {
             try
             {
